@@ -35,29 +35,37 @@
 		<div class="form-group col-md-4">
 
           <label for="stage3-dimensions" class="control-label">Dimensions</label>
-          <input 
-	          type="text" 
-	          class="form-control" 
-	          id="stage3-dimensions" 
-	          name="stage3_dimensions" 
-	          ng-model="requestForm.stage3Dimensions">
-
+	         <select 
+			      class="form-control" 
+			      name="stage3_dimensions" 
+			      id="stage3-dimensions"
+			      ng-model="stage3Dimensions">
+		        	<option value="US Letter">US Letter</option>
+		        	<option value="US Tabloid">US Tabloid</option>
+		        	<option value="A5 (UK)">A5 (UK)</option>
+		        	<option value="A4 (UK)">A4 (UK)</option>
+		        	<option value="A3 (UK)">A3 (UK)</option>
+		        	<option value="A2 (UK)">A2 (UK)</option>
+		        	<option value="A1 (UK)">A1 (UK)</option>
+		        	<option value="Mobile">Mobile</option>
+		        	<option value="Tablet">Tablet</option>
+		        	<option value="Desktop">Desktop</option>
+		        	<option value="Other">Other</option>
+		      </select>
         </div>
-
-
-        <div class="clearfix"></div>
 
 
         <div class="form-group col-md-4">
 
 	      <label for="stage3-orientation" class="control-label">Orientation</label>
-	      <input 
-	      type="text" 
+	      <select 
 	      class="form-control" 
-	      id="stage3-orientation" 
 	      name="stage3_orientation" 
-	      placeholder="Portrait / Landscape"  
-	      ng-model="stage3Orientation"> 
+	      id="stage3-orientation"
+	      ng-model="stage3Orientation">
+	        <option value="Landscape">Landscape</option>
+	        <option value="Portrait">Portrait</option>
+	      </select>
 
 	    </div>  
 
@@ -119,7 +127,7 @@
         </div>
 
 
-        <div class="form-group col-md-10">
+        <!-- <div class="form-group col-md-10">
 
           <label for="stage3-objectives" class="control-label">Objectives to accomplish, Key messages to communicate</label>
           <textarea 
@@ -130,7 +138,7 @@
 	          ng-model="stage3Objectives">
       	  </textarea>
 
-        </div>
+        </div> -->
 
         <div class="clearfix"></div>
 
@@ -155,13 +163,13 @@
 
 
         <div class="col-md-6 form-group">
-          <label for="stage3-loc" class="control-label">Server location</label>
+          <label for="stage3-loc" class="control-label">Logos to be included</label>
           <input 
           type="text" 
           class="form-control" 
           id="stage3-loc" 
           name="stage3_loc" 
-          placeholder="Or paste server location here..." 
+          placeholder="" 
           ng-model="stage3Loc">
         </div>
 
@@ -195,7 +203,7 @@
 
 
         <div class="col-md-4 form-group">
-	        <label for="stage3-ref" class="control-label">Reference materials</label>
+	        <label for="stage3-ref" class="control-label">Reference materials/content</label>
 
 	        <div class="input-group">	          
 	              

@@ -25,7 +25,7 @@
 	          id="stage1-new" 
 	          name="stage1_new_existing" 
 	          value="New job" 
-	          ng-model="job" 
+	          ng-model="stage1Job" 
 	          ng-click="selectOne()" 
 	          required> 
 	          New Job
@@ -38,7 +38,7 @@
 	          id="stage1-existing" 
 	          name="stage1_new_existing" 
 	          value="Existing job" 
-	          ng-model="job" 
+	          ng-model="stage1Job" 
 	          ng-click="selectOne()" 
 	          ng-change="changed()">
 	          Existing Job
@@ -48,7 +48,7 @@
 
    	<div class="clearfix"></div>
 	
-	<div class="info-nw-ex" ng-if="job === 'New job'">
+	<div class="info-nw-ex" ng-if="stage1Job === 'New job'">
 		
 		<div class="form-group col-md-4">
 			<label for="stage1-client">Client</label>
@@ -196,7 +196,7 @@
 	</div>
 
 
-	<div class="info-nw-ex" ng-if="job === 'Existing job'">
+	<div class="info-nw-ex" ng-if="stage1Job === 'Existing job'">
 		
 		<div class="col-md-4 form-group">
 	        <label for="stage1-routing-sheet" class="control-label">Routing sheet</label>

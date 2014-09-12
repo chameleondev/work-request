@@ -10,7 +10,24 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
 
 app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$timeout){
 
+
+
 	window.scope = $scope;
+
+
+	//the checkboxes are not checked by default
+	$scope.notChecked = true;
+	$scope.selectOne = function(){
+
+		if($('.selectOne input[type="checkbox"]').is(":checked")){
+			//if the checkbox is checked sent notChecked to false
+			$scope.notChecked  = false;
+		}else{
+			//else if they are not set notChecked to true
+			$scope.notChecked = true;
+		}
+
+	};
 	
 	// Timeout so that swiper loads after angular has rendered all templates
 	$timeout(function(){
@@ -51,7 +68,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-		
+		// loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
 		angular.forEach(['stage1','stage2','stage3'],function(value,key){
 			
 			$scope.$watch('request_form.'+value+'.$valid',function(){
@@ -69,7 +86,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-	},100);
+	},150);
 
 
 
