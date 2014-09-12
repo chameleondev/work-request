@@ -1,8 +1,45 @@
+@font-face {
+  font-family: 'EtelkaLight';
+  src: url('../font/EtelkaLight.eot'); /* IE9 Compat Modes */
+  src: url('../font/EtelkaLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/EtelkaLight.woff') format('woff'), /* Modern Browsers */
+       url('../font/EtelkaLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/EtelkaLight.svg#svgEtelkaLight') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'EtelkaLight-Italic';
+  src: url('../font/EtelkaLight-Italic.eot'); /* IE9 Compat Modes */
+  src: url('../font/EtelkaLight-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/EtelkaLight-Italic.woff') format('woff'), /* Modern Browsers */
+       url('../font/EtelkaLight-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/EtelkaLight-Italic.svg#svgEtelkaLight-Italic') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'EtelkaText';
+  src: url('../font/EtelkaText.eot'); /* IE9 Compat Modes */
+  src: url('../font/EtelkaText.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/EtelkaText.woff') format('woff'), /* Modern Browsers */
+       url('../font/EtelkaText.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/EtelkaText.svg#svgEtelkaText') format('svg'); /* Legacy iOS */
+}
+ 
+
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'EtelkaLight',"Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+h1{
+  margin-bottom: 40px;
+}
+
+.form-group {
+margin-bottom: 25px;
+}
+
 
 .hero-unit {
   margin: 50px auto 0 auto;
@@ -40,12 +77,58 @@ body {
   /*background-color: blue;*/
 }
 
+
 .form-window{
-  
   overflow: hidden;
   position:relative;
 }
 
+.form-window section{
+  height: 50px;
+}
+
+.form-window section .progress{
+  float: left;
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.form-window .section-points{
+  position: absolute;
+}
+
+.form-window .section-points .point{
+  height: 50px;
+  width:50px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.form-window .section-points .point1{
+  background-color: green;
+  left: -25px;
+}
+
+.form-window .section-points .point2{
+  background-color: red;
+  left: 260px;
+}
+
+.form-window .section-points .point3{
+  background-color: blue;
+  left: 545px;
+}
+
+.form-window .section-points .point4{
+  background-color: black;
+  left: 835px;
+}
+/*.swiper-container{
+  height:870px;
+  border-left: solid grey 1px;
+  border-right: solid grey 1px;
+}
+*/
 .checkme-down{
   margin-top: 30px;
 }
@@ -60,6 +143,18 @@ margin: 0 20px 0 10px;
 
 .hours-section span input {
 display: inline;
+}
+
+.arrow{
+  height: 150px;
+  width: 75px;
+  background:url('../images/arrows.png');
+  display: block;
+  margin-top: 260px;
+}
+
+.arrow.arrow-left{
+  background-position: 70px;
 }
 
 .ng-enter{
@@ -78,5 +173,3 @@ display: inline;
 .request-form input.ng-invalid.ng-dirty, .request-form textarea.ng-invalid.ng-dirty {
 border: #F00 1px solid;
 }
-
-

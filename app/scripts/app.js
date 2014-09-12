@@ -14,20 +14,19 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 	window.scope = $scope;
 
+	// //the checkboxes are not checked by default
+	// $scope.notChecked = true;
+	// $scope.selectOne = function(){
 
-	//the checkboxes are not checked by default
-	$scope.notChecked = true;
-	$scope.selectOne = function(){
+	// 	if($('.selectOne input[type="checkbox"]').is(":checked")){
+	// 		//if the checkbox is checked sent notChecked to false
+	// 		$scope.notChecked  = false;
+	// 	}else{
+	// 		//else if they are not set notChecked to true
+	// 		$scope.notChecked = true;
+	// 	}
 
-		if($('.selectOne input[type="checkbox"]').is(":checked")){
-			//if the checkbox is checked sent notChecked to false
-			$scope.notChecked  = false;
-		}else{
-			//else if they are not set notChecked to true
-			$scope.notChecked = true;
-		}
-
-	};
+	// };
 	
 	// Timeout so that swiper loads after angular has rendered all templates
 	$timeout(function(){
@@ -35,12 +34,15 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		//Initialize the swiper
 		window.mySwiper = new Swiper('.swiper-container',{
 			grabCursor: true,
+			onFirstInit : function(){
+				
+			},
 			onTouchStart :function(){
 
-					var stage = mySwiper.activeSlide().id;
+					$scope.stage = mySwiper.activeSlide().id;
 
 					//check if the active stage of the form is valid
-					if ($scope.request_form[stage].$invalid) {
+					if ($scope.request_form[$scope.stage].$invalid) {
 						
 						console.log('invalid');
 						mySwiper.params.swipeToNext = false;
@@ -51,7 +53,25 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 						mySwiper.params.swipeToNext = true;
 
 					}
-				}
+				},
+			onSlideNext: function(){
+				var prevSlide = $('.swiper-slide-active').prev().attr('id');
+				$('.progress-bar.'+prevSlide).css('width','33.3%');
+				$('.arrow-right ').removeClass('pulse');
+			},
+			onSlidePrev: function(){
+				var activeSlide = $('.swiper-slide-active').attr('id');
+				$('.progress-bar.'+activeSlide).css('width','0');
+			},
+			onSlideChangeStart : function(){
+				$scope.stage = mySwiper.activeSlide().id;
+
+				if ($scope.request_form[$scope.stage].$valid) {
+					$('.arrow-right ').addClass('pulse');
+				}else{
+					$('.arrow-right ').removeClass('pulse');
+				};
+			}
 		});
 
 
@@ -68,21 +88,27 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-		// loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
-		angular.forEach(['stage1','stage2','stage3'],function(value,key){
+		
+
+
+
+		// // loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
+		// angular.forEach(['stage1','stage2','stage3'],function(value,key){
 			
-			$scope.$watch('request_form.'+value+'.$valid',function(){
+		// 	$scope.$watch('request_form.'+value+'.$valid',function(){
 
-				if ($scope.request_form[value].$valid) {
-					$('.progress-bar.'+value).css('width','33.3%');
-				}else{
-					$('.progress-bar.'+value).css('width','0');
-				};
+		// 		if ($scope.request_form[value].$valid) {
+					
+		// 			$scope.validSection = true;
+		// 		}else{
+					
+		// 			$scope.validSection = false;
+		// 		};
 				
-			});
+		// 	});
 
 
-		});
+		// });
 
 
 

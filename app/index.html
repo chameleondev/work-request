@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -24,38 +25,65 @@
 
 
     <div class="container" ng-controller="Ctrl">
-      <h1>Creative Work Request</h1>
 
-
-      <div class="col-md-12">
-        
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped active stage1" style="width: 0" role="progressbar" aria-valuenow="33">
-            <span class="sr-only">35% Complete (success)</span>
+      <div class="col-md-10 col-md-offset-1">
+        <h1 class="col-md-12">
+          <div class="col-md-12">
+            Creative Work Request
           </div>
-          <div class="progress-bar progress-bar-striped active stage2" style="width: 0" role="progressbar" aria-valuenow="34">
-            <span class="sr-only">20% Complete (warning)</span>
-          </div>
-          <div class="progress-bar progress-bar-striped active stage3" style="width: 0" role="progressbar" aria-valuenow="33">
-            <span class="sr-only">10% Complete (danger)</span>
-          </div>
-        </div>
-
+        </h1>
       </div>
+
+      <div class="clearfix"></div>
+      
+
+
+      
       
 
       <div class="col-md-1">
         
-        <a class="arrow-left arrow glyphicon glyphicon-arrow-left" href="#"></a> 
+        <a class="arrow-left arrow" href="#"></a> 
 
       </div>
 
       
       <div class="form-window col-md-10" swiper>
-        
-        <form name="request_form" class="request-form" novalidate>
+
+        <div class="col-md-12">
+
+          <div class="col-md-12">
           
-          <div class="swiper-container">
+          <section>
+            <div class="section-points visible-lg">
+              <div class="point1 point"></div>
+              <div class="point2 point"></div>
+              <div class="point3 point"></div>
+              <div class="point4 point"></div>
+            </div>
+
+        
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active stage1" style="width: 0" role="progressbar" aria-valuenow="33">
+              <span class="sr-only">35% Complete (success)</span>
+            </div>
+            <div class="progress-bar progress-bar-striped active stage2" style="width: 0" role="progressbar" aria-valuenow="34">
+              <span class="sr-only">20% Complete (warning)</span>
+            </div>
+            <div class="progress-bar progress-bar-striped active stage3" style="width: 0" role="progressbar" aria-valuenow="33">
+              <span class="sr-only">10% Complete (danger)</span>
+            </div>
+          </div>
+
+          </section>
+
+          </div>
+
+        </div>
+        
+        <form name="request_form" class="request-form col-md-12" novalidate>
+          
+          <div class="swiper-container" style="">
             <div class="swiper-wrapper">
             
               <div class="swiper-slide"  id="stage1" ng-include="'partials/partial-stage1.html'"></div>
@@ -76,7 +104,7 @@
       
       <div class="col-md-1">
         
-        <a class="arrow-right arrow glyphicon glyphicon-arrow-right" href="#"></a>
+        <a class="arrow-right arrow" ng-class="{ pulse :validSection}" href="#"></a>
 
       </div>
       
