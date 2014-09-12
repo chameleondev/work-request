@@ -1,0 +1,254 @@
+<ng-form name="stage3">
+
+	<h1>Instructions</h1>
+
+	<div class="form-group col-md-6">
+
+	    <label for="stage3-creative" class="checkbox-inline">
+	      <input 
+	      type="checkbox" 
+	      id="stage3-creative" 
+	      name="stage3_creative" 
+	      value="Creative" 
+	      ng-true-value="Creative" 
+	      ng-model="stage3Creative"> Creative Brief
+	    </label>
+
+	    <label for="stage3-technical" class="checkbox-inline">
+	      <input 
+	      type="checkbox" 
+	      id="stage3-technical" 
+	      name="stage3_technical" 
+	      value="Technical"
+	      ng-true-value="Technical"
+	      ng-model="stage3Technical"> Technical specifications
+	    </label>
+
+	</div>
+
+
+	<div class="clearfix"></div>
+
+
+	<div ng-if="stage3Technical">
+
+		<div class="form-group col-md-4">
+
+          <label for="stage3-dimensions" class="control-label">Dimensions</label>
+          <input 
+	          type="text" 
+	          class="form-control" 
+	          id="stage3-dimensions" 
+	          name="stage3_dimensions" 
+	          ng-model="requestForm.stage3Dimensions">
+
+        </div>
+
+
+        <div class="clearfix"></div>
+
+
+        <div class="form-group col-md-4">
+
+	      <label for="stage3-orientation" class="control-label">Orientation</label>
+	      <input 
+	      type="text" 
+	      class="form-control" 
+	      id="stage3-orientation" 
+	      name="stage3_orientation" 
+	      placeholder="Portrait / Landscape"  
+	      ng-model="stage3Orientation"> 
+
+	    </div>  
+
+
+	    <div class="clearfix"></div>
+
+
+	    <div class="form-group col-md-4">
+
+          <label for="stage3-pages" class="control-label">Number of pages</label>
+          <input 
+          type="number" 
+          class="form-control small-field" 
+          id="stage3-pages" 
+          name="stage3_pages" 
+          placeholder="No" 
+          ng-model="stage3Pages">
+
+        </div>
+		
+	</div>
+
+
+	<div ng-if="stage3Creative">
+
+		<div class="form-group col-md-4 ">
+
+            <label for="stage3-presented" class="control-label">How will the work be used or presented?</label>
+		      <select 
+		      class="form-control" 
+		      name="stage3_presented" 
+		      id="stage3-presented"
+		      ng-model="stage3Presented">
+		        <option value="Pitch">Pitch</option>
+		        <option value="RFP">RFP</option>
+		        <option value="Creative Theme">Creative Theme</option>
+		        <option value="Powerpoint Presentation">Powerpoint Presentation</option>
+		        <option value="PDF">PDF</option>
+		        <option value="Digital Tool">Digital Tool</option>
+		        <option value="Other">Other</option>
+		      </select>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+
+        <div class="form-group col-md-10 " ng-if="stage3Presented === 'Other'">
+
+            <label for="stage3-other-presented" class="control-label">Other</label>
+            <textarea 
+	            class="form-control" 
+	            id="stage3-other-presented" 
+	            name="stage3_other_presented" 
+	            rows="3" 
+	            ng-model="stage3OtherPresented">
+	        </textarea>
+
+        </div>
+
+
+        <div class="form-group col-md-10">
+
+          <label for="stage3-objectives" class="control-label">Objectives to accomplish, Key messages to communicate</label>
+          <textarea 
+	          class="form-control" 
+	          id="stage3-objectives" 
+	          name="stage3_objectives" 
+	          rows="3"
+	          ng-model="stage3Objectives">
+      	  </textarea>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+
+        <h3>Branding</h3>
+
+        <div class="form-group col-md-4 ">
+
+            <label for="stage3-branded" class="control-label">Branding options</label>
+		      <select 
+		      class="form-control" 
+		      name="stage3_branded" 
+		      id="stage3-branded"
+		      ng-model="stage3Branded">
+		        <option value="Branded">Branded</option>
+		        <option value="Unbranded">Unbranded</option>
+		        <option value="Soft branded">Soft branded</option>
+		        <option value="Other">Other</option>
+		      </select>
+
+        </div>
+
+
+        <div class="col-md-6 form-group">
+          <label for="stage3-loc" class="control-label">Server location</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="stage3-loc" 
+          name="stage3_loc" 
+          placeholder="Or paste server location here..." 
+          ng-model="stage3Loc">
+        </div>
+
+
+        <div class="form-group col-md-10">
+
+          <label for="stage3-branding" class="control-label">Visual style, Look and feel, Branding specifications</label>
+          <textarea 
+	          class="form-control" 
+	          id="stage3-branding" 
+	          name="stage3_branding" 
+	          rows="3" 
+	          ng-model="stage3Branding">
+      	  </textarea>
+
+        </div>
+
+
+        <div class="form-group col-md-10">
+
+          <label for="stage3-sci-back" class="control-label">Scientific background</label>
+          <textarea 
+	          class="form-control" 
+	          id="stage3-sci-back" 
+	          name="stage3_sci_back" 
+	          rows="3" 
+	          ng-model="stage3SciBack">
+      	  </textarea>
+
+        </div>
+
+
+        <div class="col-md-4 form-group">
+	        <label for="stage3-ref" class="control-label">Reference materials</label>
+
+	        <div class="input-group">	          
+	              
+              <input 
+              type="file" 
+              id="stage3-ref" 
+              name="stage3_ref" 
+              multiple="" 
+              ng-model="stage3Ref">
+	  
+	        </div>
+	    </div>
+
+	    <div class="col-md-6 form-group">
+          <label for="stage3-loc" class="control-label">Server location</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="stage3-loc" 
+          name="stage3_loc" 
+          placeholder="Or paste server location here..." 
+          ng-model="stage3Loc">
+        </div>
+
+
+        <div class="form-group col-md-6">
+
+          <label for="stage3-future" class="control-label">Potential future use</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="stage3-future" 
+          name="stage3_future" 
+          placeholder="e.g In scientific posters" 
+          ng-model="stage3Future">
+
+        </div>
+		
+	</div>
+
+
+    <div class="form-group col-md-10">
+
+		<label for="stage3-additional" class="control-label">Additional Information</label>
+		<textarea 
+			class="form-control" 
+			id="stage3-additional" 
+			name="stage3_additional" 
+			rows="3" 
+			ng-model="stage3Additional"
+			required>
+		</textarea>
+		
+    </div> 
+
+</ng-form>

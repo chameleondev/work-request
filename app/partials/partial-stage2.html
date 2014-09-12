@@ -1,0 +1,259 @@
+<ng-form name="stage2">
+
+	<h1>What needs to be done</h1>
+
+
+	<div class="form-group col-md-10">
+		<label for="stage2-desc">Task description</label>
+
+		<textarea 
+			class="form-control" 
+			id="stage2-desc" 
+			name="stage2_desc" 
+			rows="3" 
+			ng-model="stage2Desc" 
+			required="">
+		</textarea>
+	</div>
+
+
+	<div class="clearfix"></div>
+
+
+	<div class="form-group col-md-3">
+
+	      <label for="stage2-draft-date" class="control-label">First draft by</label>
+	      <input 
+	      type="date" 
+	      class="form-control" 
+	      id="stage2-draft-date" 
+	      name="stage2_draft_date" 
+	      ng-model="stage2DraftDate"
+	      required="">
+
+    </div>
+
+    <div class="form-group col-md-2">
+    	
+    	<label for="stage2-first-draft-time" class="control-label">Time</label>
+	      <select 
+	      class="form-control" 
+	      name="stage2_first-draft-time" 
+	      id="stage2-first-draft_time"
+	      ng-model="stage2FirstDraftTime">
+	        <option value="End of business UK">EOB UK</option>
+	        <option value="Start of day UK">SOB UK</option>
+	        <option value="End of business US">EOB US</option>
+	        <option value="Start of day US">SOB US</option>
+	        <option value="12PM">12PM</option>
+	        <option value="3PM">3PM</option>
+	      </select>
+
+    </div>
+
+    <div class="form-group col-md-3">
+
+	      <label for="stage2-final-date" class="control-label">Final delivery date</label>
+	      <input 
+	      type="date" 
+	      class="form-control" 
+	      id="stage2-final-date" 
+	      name="stage2_final_date" 
+	      ng-model="stage2FinalDate"
+	      required="">
+
+    </div>
+
+
+    <div class="form-group col-md-2">
+    	
+    	<label for="stage2-time" class="control-label">Time</label>
+	      <select 
+	      class="form-control" 
+	      name="stage2_time" 
+	      id="stage2-time"
+	      ng-model="stage2Time">
+	        <option value="End of business UK">EOB UK</option>
+	        <option value="Start of day UK">SOB UK</option>
+	        <option value="End of business US">EOB US</option>
+	        <option value="Start of day US">SOB US</option>
+	        <option value="12PM">12PM</option>
+	        <option value="3PM">3PM</option>
+	      </select>
+
+    </div>
+
+
+    <div class="form-group col-md-2">
+
+      <label for="stage2-immediately" class="checkbox-inline checkme-down">
+        <input 
+        type="checkbox" 
+        id="stage2-immediately" 
+        name="stage2_immediately" 
+        value="Immediately"
+        ng-model="stage2Immediately"> ASAP
+      </label>
+
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+	<div class="form-group col-md-6">
+
+			
+			<label for="stage2-format">Delivery format</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage2-format"
+			name="stage2_format"
+			ng-model="stage1Format"
+			placeholder="e.g email PDF of printout">
+		        
+        
+    </div>
+
+
+   	<div class="clearfix"></div>
+
+
+   	<div class="col-md-12 hours-section">
+          <label class="control-label">Hours for this task</label>
+          <span>
+          	<input 
+          	  type="number" 
+	          class="form-control small-field hour" 
+	          id="stage2-des" 
+	          name="stage2_des" 
+	          ng-model="stage2Des" 
+	          ng-change="calcHours()" 
+	          style=""> Des
+	      </span>
+
+          <span>
+          	<input 
+          	type="number" 
+          	class="form-control small-field hour" 
+          	id="stage2-sdes" 
+          	name="stage2_sdes" 
+          	ng-model="stage2Sdes" 
+          	ng-change="calcHours()"> sDes
+          </span>
+
+          <span>
+
+          	<input 
+          	type="number" 
+          	class="form-control small-field hour" 
+          	id="stage2-pdes" 
+          	name="stage2_pdes" 
+          	ng-model="stage2Pdes" 
+          	ng-change="calcHours()"> pDes
+          </span>
+
+          <span>
+          	<input 
+          	type="number" 
+          	class="form-control small-field hour" 
+          	id="stage2-cd" 
+          	name="stage2_cd" 
+          	ng-model="stage2Cd" 
+          	ng-change="calcHours()"> CD
+          </span>
+
+          <span>
+          	<input 
+          	type="number" 
+          	class="form-control small-field hour" 
+          	id="stage2-gd" 
+          	name="stage2_gd" 
+          	ng-model="stage2Gd" 
+          	ng-change="calcHours()"> GD
+          </span>
+          
+    </div>
+
+
+	<div class="form-group col-md-12">
+		<input 
+		type="checkbox" 
+		id="stage2-estimate" 
+		name="stage2_estimate" 
+		ng-model="requestForm.stage2_estimate" ng-click="clearHours()" 
+		ng-change="calcHours" 
+		class="ng-pristine ng-valid"> Need an estimate
+	</div>
+
+
+	<div class="clearfix"></div>
+
+
+	<div class="form-group col-md-10">
+		<label for="stage2-add-info">Additional info</label>
+
+		<textarea 
+			class="form-control" 
+			id="stage2-add-info" 
+			name="stage2_add_info" 
+			rows="3" 
+			ng-model="stage2AddInfo" 
+			required="">
+		</textarea>
+	</div>
+
+
+	<div class="clearfix"></div>
+
+
+	<div class="col-md-4 form-group">
+        <label for="stage2-materials" class="control-label">Marked up file</label>
+
+        <div class="input-group">	          
+              
+          <input 
+          type="file" 
+          id="stage2-materials" 
+          name="stage2_materials" 
+          multiple="" 
+          ng-model="stage2Materials">
+  
+        </div>
+    </div>
+
+
+    <div class="col-md-4 form-group">
+        <label for="stage2-supp-docs" class="control-label">Supporting documents</label>
+
+        <div class="input-group">	          
+              
+          <input 
+          type="file" 
+          id="stage2-supp-docs" 
+          name="stage2_supp_docs" 
+          multiple="" 
+          ng-model="stage2SuppDocs">
+  
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+	<div class="form-group col-md-6">
+		<label for="stage2-location">Server location</label>
+		<input 
+		type="text" 
+		class="form-control" 
+		id="stage2-location"
+		name="stage2_location"
+		ng-model="stage2Location"
+		placeholder="Or paste server location here...">
+	</div>
+	
+</ng-fom>
+
+              

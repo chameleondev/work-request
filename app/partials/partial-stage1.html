@@ -1,0 +1,268 @@
+<ng-form name="stage1">
+
+	<h1>Job Information</h1>
+
+	<div class="form-group col-md-6">
+		<label for="stage1-code">Job Code</label>
+		<input 
+		type="text" 
+		class="form-control" 
+		id="stage1-code"
+		name="stage1_code"
+		ng-model="stage1Code"
+		placeholder=""
+		required>
+	</div>
+
+
+	<div class="clearfix"></div>
+
+	<div class="form-group col-md-6">
+
+			<label class="radio-inline" for="stage1-new">
+	          <input 
+	          type="radio" 
+	          id="stage1-new" 
+	          name="stage1_new_existing" 
+	          value="New job" 
+	          ng-model="job" 
+	          ng-click="selectOne()" 
+	          required> 
+	          New Job
+	        </label>
+		
+       
+        	<label class="radio-inline" for="stage1-existing">
+	          <input 
+	          type="radio" 
+	          id="stage1-existing" 
+	          name="stage1_new_existing" 
+	          value="Existing job" 
+	          ng-model="job" 
+	          ng-click="selectOne()" 
+	          ng-change="changed()">
+	          Existing Job
+	        </label>
+        
+    </div>
+
+   	<div class="clearfix"></div>
+	
+	<div class="info-nw-ex" ng-if="job === 'New job'">
+		
+		<div class="form-group col-md-4">
+			<label for="stage1-client">Client</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage1-client"
+			name="stage1_client"
+			ng-model="stage1Client"
+			placeholder="e.g Bayer"
+			required>
+		</div>
+
+
+		<div class="form-group col-md-4">
+			<label for="stage1-product">Product</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage1-product"
+			name="stage1_product"
+			ng-model="stage1Product"
+			placeholder="e.g Xarelto">
+		</div>
+
+
+		<div class="clearfix"></div>
+
+
+		<div class="form-group col-md-8">
+			<label for="stage1-title">Project Title</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage1-title"
+			name="stage1_title"
+			ng-model="stage1Title"
+			placeholder="e.g Xarelto Brand Plan Presentation">
+		</div>
+
+
+		<div class="clearfix"></div>
+
+
+		<!-- <div class="form-group col-md-6">
+			<label for="stage1-contact">Contact Person</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage1-contact"
+			name="stage1_contact"
+			ng-model="stage1Contact"
+			placeholder="Your name">
+		</div>
+ -->
+
+		<div class="form-group col-md-8">
+			<label for="stage1-account">Account Person</label>
+			<input 
+			type="text" 
+			class="form-control" 
+			id="stage1-account"
+			name="stage1_account"
+			ng-model="stage1Account"
+			placeholder="Your name"
+			required>
+		</div>
+
+
+		<div class="form-group col-md-6">
+        
+	        <label class="control-label">Select one </label><br>
+
+	        <label class="checkbox-inline" for="stage1-bug-in-pap">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-bug-in-pap" 
+	          name="stage1_bug_in_pap" 
+	          ng-model="stage1BugInPap" 
+	          value="Budget in Paprika" 
+	          ng-click="selectOne()" 
+	          style=""> Budget in Paprika
+	        </label>
+
+
+	        <label class="checkbox-inline" for="stage1-nb-or-int">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-nb-or-int" 
+	          name="stage1_nb_or_int" 
+	          ng-model="stage1NbOrInt" 
+	          value="NB or internal" 
+	          ng-click="selectOne()" 
+	          style=""> New Business or Internal
+	        </label>
+
+	    </div>
+		
+			
+		<div class="clearfix"></div>
+
+
+	    <div class="form-group col-md-6">
+        
+	        <label class="control-label">Check all that applies</label><br>
+
+	        <label class="checkbox-inline" for="stage1-new-des-proj">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-new-des-proj" 
+	          name="stage1_new_des_proj" 
+	          ng-model="stage1NewDesProj" 
+	          value="NB or internal" 
+	          ng-click="selectOne()" 
+	          style=""> Design project
+	        </label>
+
+	        <label class="checkbox-inline" for="stage1-new-stud-proj">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-new-stud-proj" 
+	          name="stage1_new_stud_proj" 
+	          ng-model="stage1NewStudProj" 
+	          value="NB or internal" 
+	          ng-click="selectOne()" 
+	          style=""> Typesetting project
+	        </label>
+
+
+	        <label class="checkbox-inline" for="stage1-dig-proj">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-dig-proj" 
+	          name="stage1_dig-proj" 
+	          ng-model="stage1DigProj" 
+	          value="Budget in Paprika" 
+	          ng-click="selectOne()" 
+	          style=""> Digital project
+	        </label>
+
+
+
+	    </div>
+		
+	</div>
+
+
+	<div class="info-nw-ex" ng-if="job === 'Existing job'">
+		
+		<div class="col-md-4 form-group">
+	        <label for="stage1-routing-sheet" class="control-label">Routing sheet</label>
+
+	        <div class="input-group">	          
+	              
+              <input 
+              type="file" 
+              id="stage1-routing-sheet" 
+              name="stage1_routing_sheet" 
+              multiple="" 
+              ng-model="stage1RoutingSheet">
+	  
+	        </div>
+	    </div>
+
+
+	    <div class="col-md-4 form-group">
+
+	        <label for="stage1-existing-stud-proj" class="control-label checkme-down">
+
+	          <input 
+		          type="checkbox" 
+		          value="studio" 
+		          id="stage1-existing-stud-proj" 
+		          name="stage1_existing_stud_proj" 
+		          ng-model="stage1ExistingStudProj" > Studio project
+		      </label>
+	        
+	    </div>
+
+
+	    <div class="clearfix"></div>
+
+
+	    <div class="col-md-4 form-group">
+	        <label for="stage1-marked-up" class="control-label">Marked up file</label>
+
+	        <div class="input-group">	          
+	              
+              <input 
+              type="file" 
+              id="stage1-marked-up" 
+              name="stage1_marked_up" 
+              multiple="" 
+              ng-model="stage1MarkedUp">
+	  
+	        </div>
+	    </div>
+
+
+	    <div class="col-md-4 form-group">
+
+	        <label for="stage1-hard-cp" class="control-label checkme-down">
+
+	          <input 
+		          type="checkbox" 
+		          value="studio" 
+		          id="stage1-hard-cp" 
+		          name="stage1_hard_cp" 
+		          ng-model="stage1HardCp" > Hard copy
+		      </label>
+	        
+	    </div>
+		
+	</div>
+
+</ng-form>
+              

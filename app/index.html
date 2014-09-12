@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" ng-app="WorkRequest">
+  <head>
+    <meta charset="utf-8">
+    <title>work request</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/swiper/dist/idangerous.swiper.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <div class="container" ng-controller="Ctrl">
+      <h1>Creative Work Request</h1>
+
+
+      <div class="col-md-12">
+        
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active stage1" style="width: 0" role="progressbar" aria-valuenow="33">
+            <span class="sr-only">35% Complete (success)</span>
+          </div>
+          <div class="progress-bar progress-bar-striped active stage2" style="width: 0" role="progressbar" aria-valuenow="34">
+            <span class="sr-only">20% Complete (warning)</span>
+          </div>
+          <div class="progress-bar progress-bar-striped active stage3" style="width: 0" role="progressbar" aria-valuenow="33">
+            <span class="sr-only">10% Complete (danger)</span>
+          </div>
+        </div>
+
+      </div>
+      
+
+      <div class="col-md-1">
+        
+        <a class="arrow-left arrow glyphicon glyphicon-arrow-left" href="#"></a> 
+
+      </div>
+
+      
+      <div class="form-window col-md-10" swiper>
+        
+        <form name="request_form" class="request-form" novalidate>
+          
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+            
+              <div class="swiper-slide"  id="stage1" ng-include="'partials/partial-stage1.html'"></div>
+
+
+              <div class="swiper-slide" id="stage2" ng-include="'partials/partial-stage2.html'"></div>
+
+
+              <div class="swiper-slide" id="stage3" ng-include="'partials/partial-stage3.html'"></div>
+              
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+      
+      <div class="col-md-1">
+        
+        <a class="arrow-right arrow glyphicon glyphicon-arrow-right" href="#"></a>
+
+      </div>
+      
+      
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/swiper/dist/idangerous.swiper.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/app.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
