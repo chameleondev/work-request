@@ -92,23 +92,25 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-		// // loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
-		// angular.forEach(['stage1','stage2','stage3'],function(value,key){
+		// loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
+		angular.forEach(['stage1','stage2','stage3'],function(value,key){
 			
-		// 	$scope.$watch('request_form.'+value+'.$valid',function(){
+			$scope.$watch('request_form',function(){
 
-		// 		if ($scope.request_form[value].$valid) {
-					
-		// 			$scope.validSection = true;
-		// 		}else{
-					
-		// 			$scope.validSection = false;
-		// 		};
+				alert('changed');
+
+				if ($scope.request_form[value].$valid) {
+					alert('valid');
+					// $scope.validSection = true;
+				}else{
+					alert('invalid');
+					// $scope.validSection = false;
+				};
 				
-		// 	});
+			});
 
 
-		// });
+		});
 
 
 
