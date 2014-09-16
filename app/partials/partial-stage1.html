@@ -1,6 +1,6 @@
 <ng-form name="stage1">
 
-	
+	{{$valid}}
     <h2 class="col-md-12">Job Information</h2>
     
 
@@ -27,8 +27,7 @@
 	          id="stage1-new" 
 	          name="stage1_new_existing" 
 	          value="New job" 
-	          ng-model="stage1Job" 
-	          ng-click="selectOne()" 
+	          ng-model="stage1Job"
 	          required> 
 	          New Job
 	        </label>
@@ -41,8 +40,7 @@
 	          name="stage1_new_existing" 
 	          value="Existing job" 
 	          ng-model="stage1Job" 
-	          ng-click="selectOne()" 
-	          ng-change="changed()">
+	          required>
 	          Existing Job
 	        </label>
         
@@ -73,7 +71,8 @@
 			id="stage1-product"
 			name="stage1_product"
 			ng-model="stage1Product"
-			placeholder="e.g Xarelto">
+			placeholder="e.g Xarelto"
+			required>
 		</div>
 
 
@@ -88,7 +87,8 @@
 			id="stage1-title"
 			name="stage1_title"
 			ng-model="stage1Title"
-			placeholder="e.g Xarelto Brand Plan Presentation">
+			placeholder="e.g Xarelto Brand Plan Presentation"
+			required>
 		</div>
 
 
@@ -117,6 +117,8 @@
 			ng-model="stage1Account"
 			placeholder="Your name"
 			required>
+
+			<span ng-show="stage1.stage1_account.$invalid">inValid!</span>
 		</div>
 
 
@@ -131,8 +133,7 @@
 	          name="stage1_bug_in_pap" 
 	          ng-model="stage1BugInPap" 
 	          value="Budget in Paprika" 
-	          ng-click="selectOne()" 
-	          style=""> Budget in Paprika
+	          ng-required="!stage1NbOrInt"> Budget in Paprika
 	        </label>
 
 
@@ -143,8 +144,7 @@
 	          name="stage1_nb_or_int" 
 	          ng-model="stage1NbOrInt" 
 	          value="NB or internal" 
-	          ng-click="selectOne()" 
-	          style=""> New Business or Internal
+	          ng-required="!stage1BugInPap"> New Business or Internal
 	        </label>
 
 	    </div>
@@ -187,7 +187,7 @@
 	          name="stage1_dig-proj" 
 	          ng-model="stage1DigProj" 
 	          value="Budget in Paprika" 
-	          ng-click="selectOne()" 
+	          ng-click="selectOne($event)" 
 	          style=""> Digital project
 	        </label>
 

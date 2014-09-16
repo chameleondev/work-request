@@ -66,7 +66,7 @@ margin-bottom: 25px;
 }
 
 .progress-bar:nth-child(1){
-  background-color: purple;
+  background-color: grey;
 }
 
 .progress-bar:nth-child(2){
@@ -85,12 +85,14 @@ margin-bottom: 25px;
 
 .form-window section{
   height: 50px;
+  margin-bottom: 20px;
 }
 
 .form-window section .progress{
   float: left;
   width: 100%;
-  margin: 15px 0 0 0;
+  margin: 22px 0 0 0;
+  height: 7px;
 }
 
 .form-window .section-points{
@@ -102,27 +104,32 @@ margin-bottom: 25px;
   width:50px;
   border-radius: 50%;
   position: absolute;
+  background-color: #FFDB99;
+  -webkit-transition:all 1s;
+  transition:all 1s;
+}
+
+.form-window .section-points .point.active{
+  box-shadow: 1px 5px 6px #888;
+  background: #FFA500;
 }
 
 .form-window .section-points .point1{
-  background-color: green;
-  left: -25px;
+  left: 0px;
 }
 
 .form-window .section-points .point2{
-  background-color: red;
   left: 260px;
 }
 
 .form-window .section-points .point3{
-  background-color: blue;
   left: 545px;
 }
 
 .form-window .section-points .point4{
-  background-color: black;
-  left: 835px;
+  left: 810px;
 }
+
 /*.swiper-container{
   height:870px;
   border-left: solid grey 1px;

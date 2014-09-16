@@ -39,10 +39,10 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 			},
 			onTouchStart :function(){
 
-					$scope.stage = mySwiper.activeSlide().id;
+					var stage = mySwiper.activeSlide().id;
 
 					//check if the active stage of the form is valid
-					if ($scope.request_form[$scope.stage].$invalid) {
+					if ($scope.request_form[stage].$invalid) {
 						
 						console.log('invalid');
 						mySwiper.params.swipeToNext = false;
@@ -64,13 +64,21 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 				$('.progress-bar.'+activeSlide).css('width','0');
 			},
 			onSlideChangeStart : function(){
-				$scope.stage = mySwiper.activeSlide().id;
+				var stage = mySwiper.activeSlide().id;
 
-				if ($scope.request_form[$scope.stage].$valid) {
+				if ($scope.request_form[stage].$valid) {
 					$('.arrow-right ').addClass('pulse');
 				}else{
 					$('.arrow-right ').removeClass('pulse');
 				};
+
+				$('.point').removeClass('active');
+
+				var stageNum = stage[5];
+
+				console.log(stageNum);
+
+				$('.point'+stageNum).addClass('active');
 			}
 		});
 
@@ -78,6 +86,8 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		//click for left arrow
 		$('.arrow-left').on('click', function(e){
 			e.preventDefault();
+
+			if (true) {};
 			mySwiper.swipePrev();
 		});
 		//click for right arrow
@@ -87,24 +97,21 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		});
 
 
-
-		
+		$scope.selectOne = function(e){
+			console.log(e);
+		}
 
 
 
 		// loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
 		angular.forEach(['stage1','stage2','stage3'],function(value,key){
 			
-			$scope.$watch('request_form',function(){
-
-				alert('changed');
+			$scope.$watch('request_form.'+value+'.$valid',function(){
 
 				if ($scope.request_form[value].$valid) {
-					alert('valid');
-					// $scope.validSection = true;
+					$('.arrow-right ').addClass('pulse');
 				}else{
-					alert('invalid');
-					// $scope.validSection = false;
+					$('.arrow-right ').removeClass('pulse');
 				};
 				
 			});
