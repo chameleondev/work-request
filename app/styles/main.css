@@ -130,12 +130,8 @@ margin-bottom: 25px;
   left: 810px;
 }
 
-/*.swiper-container{
-  height:870px;
-  border-left: solid grey 1px;
-  border-right: solid grey 1px;
-}
-*/
+
+
 .checkme-down{
   margin-top: 30px;
 }
@@ -174,6 +170,41 @@ display: inline;
 
 .ng-enter-active{
   opacity: 1;
+}
+
+
+.field-error{
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.field-error.ng-hide-add { 
+  -webkit-transition:0.5s all;
+  transition:0.5s all;
+  position: relative;
+  display: inline !important;
+  opacity: 1; 
+  bottom: 0;
+}
+
+.field-error.ng-hide-add.ng-hide-add-active { 
+  opacity: 0;
+  bottom: -10px;
+}
+
+.field-error.ng-hide-remove { 
+  -webkit-transition:0.5s all;
+  transition:0.5s all;
+  position: relative;
+  display: inline !important;
+  opacity: 0; 
+  bottom: -10px;
+}
+
+.field-error.ng-hide-remove.ng-hide-remove-active {  
+  opacity: 1; 
+  bottom: 0;
 }
 
 

@@ -39,21 +39,19 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 			},
 			onTouchStart :function(){
 
-					var stage = mySwiper.activeSlide().id;
+				var stage = mySwiper.activeSlide().id;
 
-					//check if the active stage of the form is valid
-					if ($scope.request_form[stage].$invalid) {
-						
-						console.log('invalid');
-						mySwiper.params.swipeToNext = false;
+				//check if the active stage of the form is valid
+				if ($scope.request_form[stage].$invalid) {
 
-					} else{
+					mySwiper.params.swipeToNext = false;
 
-						console.log('valid');
-						mySwiper.params.swipeToNext = true;
+				}else{
 
-					}
-				},
+					mySwiper.params.swipeToNext = true;
+
+				}
+			},
 			onSlideNext: function(){
 				var prevSlide = $('.swiper-slide-active').prev().attr('id');
 				$('.progress-bar.'+prevSlide).css('width','33.3%');
@@ -76,7 +74,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 				var stageNum = stage[5];
 
-				console.log(stageNum);
+				// console.log(stageNum);
 
 				$('.point'+stageNum).addClass('active');
 			}
@@ -87,18 +85,53 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		$('.arrow-left').on('click', function(e){
 			e.preventDefault();
 
-			if (true) {};
 			mySwiper.swipePrev();
 		});
 		//click for right arrow
 		$('.arrow-right').on('click', function(e){
 			e.preventDefault();
-			mySwiper.swipeNext();
+
+			validateForm();
+
+			var activeSlide = mySwiper.activeSlide().id;
+
+			if(scope.request_form[activeSlide].$valid){
+				mySwiper.swipeNext();
+			}
+
+			
 		});
 
 
 		$scope.selectOne = function(e){
 			console.log(e);
+		}
+
+		var validateForm = function(){
+
+			var stage = mySwiper.activeSlide().id;
+
+			console.log(stage);
+
+			var stageObj = $scope.request_form[stage];
+
+			console.log(stageObj);
+
+			for(var key in stageObj){
+
+				// console.log(key);
+
+				if ($scope.request_form[stage][key] && $scope.request_form[stage][key].hasOwnProperty && $scope.request_form[stage][key].hasOwnProperty('$dirty')) {
+
+					$scope.request_form[stage].$setDirty();
+
+					$scope.request_form[stage][key].$dirty = true;
+
+					$scope.$apply();
+				};
+
+			}
+
 		}
 
 
@@ -126,7 +159,23 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-	
+	 // var isFormValid = function ($scope, ngForm) {
+	 //      var i = null;
+	 //      //$scope.$emit('$validate');
+	 //      $scope.$broadcast('$validate');
+	      
+	 //      if(! ngForm.$invalid) {
+	 //        return true;
+	 //      } else {
+	 //        // make the form fields '$dirty' so that the validation messages would be shown
+	 //        ngForm.$dirty = true;
+	        
+	 //        for(i in ngForm) {
+	 //          if(ngForm[i] && ngForm[i].hasOwnProperty && ngForm[i].hasOwnProperty('$dirty')) { // TODO: is 'field.$invalid' test required?
+	 //            ngForm[i].$dirty = true;
+	 //          }
+	 //        }
+	 //      }
 	
 
 
