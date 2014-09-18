@@ -14,19 +14,10 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 	window.scope = $scope;
 
-	// //the checkboxes are not checked by default
-	// $scope.notChecked = true;
-	// $scope.selectOne = function(){
+	// create this object so that the form scope can be accessed in the controller - models need to be form.modelName
+	$scope.form = {};
 
-	// 	if($('.selectOne input[type="checkbox"]').is(":checked")){
-	// 		//if the checkbox is checked sent notChecked to false
-	// 		$scope.notChecked  = false;
-	// 	}else{
-	// 		//else if they are not set notChecked to true
-	// 		$scope.notChecked = true;
-	// 	}
 
-	// };
 	
 	// Timeout so that swiper loads after angular has rendered all templates
 	$timeout(function(){
@@ -107,23 +98,30 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 			console.log(e);
 		}
 
+		//set the form to dirty so that the validation errors can be shown
 		var validateForm = function(){
 
+			// find out  the active slide
 			var stage = mySwiper.activeSlide().id;
 
 			console.log(stage);
 
+
+			// access the object for the stage of the current form
 			var stageObj = $scope.request_form[stage];
 
 			console.log(stageObj);
 
+
+			// set the current form to dirty
+			$scope.request_form[stage].$setDirty();
+
+			//loop through the fields in the form and set them to dirty
 			for(var key in stageObj){
 
 				// console.log(key);
 
 				if ($scope.request_form[stage][key] && $scope.request_form[stage][key].hasOwnProperty && $scope.request_form[stage][key].hasOwnProperty('$dirty')) {
-
-					$scope.request_form[stage].$setDirty();
 
 					$scope.request_form[stage][key].$dirty = true;
 
@@ -136,9 +134,10 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-		// loop through each stage of the form, if the stage is valid animate progress bar to complete else do the opposite
+		// loop through each stage of the form, if the stage is valid add pulse class to the next arrow
 		angular.forEach(['stage1','stage2','stage3'],function(value,key){
 			
+			// a watch for each stage of the form object's valid property
 			$scope.$watch('request_form.'+value+'.$valid',function(){
 
 				if ($scope.request_form[value].$valid) {

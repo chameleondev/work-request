@@ -14,7 +14,7 @@
 		class="form-control" 
 		id="stage1-code"
 		name="stage1_code"
-		ng-model="stage1Code"
+		ng-model="form.stage1Code"
 		placeholder=""
 		required>
 
@@ -32,7 +32,7 @@
 	          id="stage1-new" 
 	          name="stage1_new_existing" 
 	          value="New job" 
-	          ng-model="stage1Job"
+	          ng-model="form.stage1Job"
 	          required> 
 	          New Job
 	        </label>
@@ -44,7 +44,7 @@
 	          id="stage1-existing" 
 	          name="stage1_new_existing" 
 	          value="Existing job" 
-	          ng-model="stage1Job" 
+	          ng-model="form.stage1Job" 
 	          required>
 	          Existing Job
 	        </label>
@@ -55,7 +55,7 @@
 
    	<div class="clearfix"></div>
 	
-	<div class="info-nw-ex" ng-if="stage1Job === 'New job'">
+	<div class="info-nw-ex" ng-if="form.stage1Job === 'New job'">
 		
 		<div class="form-group col-md-4">
 			<label for="stage1-client">Client</label>
@@ -67,7 +67,7 @@
 			class="form-control" 
 			id="stage1-client"
 			name="stage1_client"
-			ng-model="stage1Client"
+			ng-model="form.stage1Client"
 			placeholder="e.g Bayer"
 			required>
 		</div>
@@ -83,7 +83,7 @@
 			class="form-control" 
 			id="stage1-product"
 			name="stage1_product"
-			ng-model="stage1Product"
+			ng-model="form.stage1Product"
 			placeholder="e.g Xarelto"
 			required>
 		</div>
@@ -102,7 +102,7 @@
 			class="form-control" 
 			id="stage1-title"
 			name="stage1_title"
-			ng-model="stage1Title"
+			ng-model="form.stage1Title"
 			placeholder="e.g Xarelto Brand Plan Presentation"
 			required>
 		</div>
@@ -118,7 +118,7 @@
 			class="form-control" 
 			id="stage1-contact"
 			name="stage1_contact"
-			ng-model="stage1Contact"
+			ng-model="form.stage1Contact"
 			placeholder="Your name">
 		</div>
  -->
@@ -133,7 +133,7 @@
 			class="form-control" 
 			id="stage1-account"
 			name="stage1_account"
-			ng-model="stage1Account"
+			ng-model="form.stage1Account"
 			placeholder="Your name"
 			required>
 		</div>
@@ -143,7 +143,7 @@
         
 	        <label class="control-label">Select one </label>
 			
-			<span ng-show="!stage1NbOrInt && !stage1BugInPap && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty)" class="field-error" >Required!</span>
+			<span ng-show="!form.stage1NbOrInt && !form.stage1BugInPap && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty)" class="field-error" >Required!</span>
 
 	        <br>
 
@@ -152,9 +152,9 @@
 	          type="checkbox" 
 	          id="stage1-bug-in-pap" 
 	          name="stage1_bug_in_pap" 
-	          ng-model="stage1BugInPap" 
+	          ng-model="form.stage1BugInPap" 
 	          value="Budget in Paprika" 
-	          ng-required="!stage1NbOrInt"> Budget in Paprika
+	          ng-required="!form.stage1NbOrInt"> Budget in Paprika
 	        </label>
 
 
@@ -163,9 +163,9 @@
 	          type="checkbox" 
 	          id="stage1-nb-or-int" 
 	          name="stage1_nb_or_int" 
-	          ng-model="stage1NbOrInt" 
+	          ng-model="form.stage1NbOrInt" 
 	          value="NB or internal" 
-	          ng-required="!stage1BugInPap"> New Business or Internal
+	          ng-required="!form.stage1BugInPap"> New Business or Internal
 	        </label>
 
 
@@ -181,7 +181,7 @@
         
 	        <label class="control-label">Check all that applies</label>
 			
-			<span ng-show="!stage1DigProj && !stage1NewStudProj &&  !stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class="field-error" >Required!</span>
+			<span ng-show="!form.stage1DigProj && !form.stage1NewStudProj &&  !form.stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class="field-error" >Required!</span>
 
 	        <br>
 
@@ -190,10 +190,10 @@
 	          type="checkbox" 
 	          id="stage1-new-des-proj" 
 	          name="stage1_new_des_proj" 
-	          ng-model="stage1NewDesProj" 
+	          ng-model="form.stage1NewDesProj" 
 	          value="NB or internal" 
 	          ng-click="selectOne()" 
-	          ng-required="!stage1NewStudProj && !stage1DigProj"> Design project
+	          ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project
 	        </label>
 
 	        <label class="checkbox-inline" for="stage1-new-stud-proj">
@@ -201,10 +201,10 @@
 	          type="checkbox" 
 	          id="stage1-new-stud-proj" 
 	          name="stage1_new_stud_proj" 
-	          ng-model="stage1NewStudProj" 
+	          ng-model="form.stage1NewStudProj" 
 	          value="NB or internal" 
 	          ng-click="selectOne()" 
-	          ng-required="!stage1NewDesProj && !stage1DigProj"> Typesetting project
+	          ng-required="!form.stage1NewDesProj && !form.stage1DigProj"> Typesetting project
 	        </label>
 
 
@@ -213,10 +213,10 @@
 	          type="checkbox" 
 	          id="stage1-dig-proj" 
 	          name="stage1_dig_proj" 
-	          ng-model="stage1DigProj" 
+	          ng-model="form.stage1DigProj" 
 	          value="Budget in Paprika" 
 	          ng-click="selectOne($event)" 
-	          ng-required="!stage1NewDesProj && !stage1NewStudProj"> Digital project
+	          ng-required="!form.stage1NewDesProj && !form.stage1NewStudProj"> Digital project
 	        </label>
 
 			
@@ -226,7 +226,7 @@
 	</div>
 
 
-	<div class="info-nw-ex" ng-if="stage1Job === 'Existing job'">
+	<div class="info-nw-ex" ng-if="form.stage1Job === 'Existing job'">
 		
 		<div class="col-md-4 form-group">
 	        <label for="stage1-routing-sheet" class="control-label">Routing sheet</label>
@@ -238,7 +238,7 @@
               id="stage1-routing-sheet" 
               name="stage1_routing_sheet" 
               multiple="" 
-              ng-model="stage1RoutingSheet">
+              ng-model="form.stage1RoutingSheet">
 	        </div>
 	    </div>
 
@@ -252,7 +252,7 @@
 		          value="studio" 
 		          id="stage1-existing-stud-proj" 
 		          name="stage1_existing_stud_proj"
-		          ng-model="stage1ExistingStudProj" > Studio project
+		          ng-model="form.stage1ExistingStudProj" > Studio project
 		      </label>
 	        
 	    </div>
@@ -271,7 +271,7 @@
               id="stage1-marked-up" 
               name="stage1_marked_up" 
               multiple="" 
-              ng-model="stage1MarkedUp">
+              ng-model="form.stage1MarkedUp">
 	  
 	        </div>
 	    </div>
@@ -286,7 +286,7 @@
 		          value="studio" 
 		          id="stage1-hard-cp" 
 		          name="stage1_hard_cp" 
-		          ng-model="stage1HardCp" > Hard copy
+		          ng-model="form.stage1HardCp" > Hard copy
 		      </label>
 	        
 	    </div>

@@ -13,7 +13,7 @@
 			id="stage2-desc" 
 			name="stage2_desc" 
 			rows="3" 
-			ng-model="stage2Desc" 
+			ng-model="form.stage2Desc" 
 			required="">
 		</textarea>
 	</div>
@@ -31,7 +31,7 @@
 	      class="form-control" 
 	      id="stage2-draft-date" 
 	      name="stage2_draft_date" 
-	      ng-model="stage2DraftDate">
+	      ng-model="form.stage2DraftDate">
 
     </div>
 
@@ -42,7 +42,7 @@
 	      class="form-control" 
 	      name="stage2_first-draft-time" 
 	      id="stage2-first-draft_time"
-	      ng-model="stage2FirstDraftTime">
+	      ng-model="form.stage2FirstDraftTime">
 	        <option value="End of business UK">EOB UK</option>
 	        <option value="Start of day UK">SOB UK</option>
 	        <option value="End of business US">EOB US</option>
@@ -63,7 +63,7 @@
 	      class="form-control" 
 	      id="stage2-final-date" 
 	      name="stage2_final_date" 
-	      ng-model="stage2FinalDate"
+	      ng-model="form.stage2FinalDate"
 	      required>
 
     </div>
@@ -76,7 +76,7 @@
 	      class="form-control" 
 	      name="stage2_time" 
 	      id="stage2-time"
-	      ng-model="stage2Time">
+	      ng-model="form.stage2Time">
 	        <option value="End of business UK">EOB UK</option>
 	        <option value="Start of day UK">SOB UK</option>
 	        <option value="End of business US">EOB US</option>
@@ -96,7 +96,7 @@
         id="stage2-immediately" 
         name="stage2_immediately" 
         value="Immediately"
-        ng-model="stage2Immediately"> ASAP
+        ng-model="form.stage2Immediately"> ASAP
       </label>
 
     </div>
@@ -118,7 +118,7 @@
 			class="form-control" 
 			id="stage2-format"
 			name="stage2_format"
-			ng-model="stage2Format"
+			ng-model="form.stage2Format"
 			placeholder="e.g email PDF of printout"
 			required>
 		        
@@ -137,7 +137,7 @@
 	          class="form-control small-field hour" 
 	          id="stage2-des" 
 	          name="stage2_des" 
-	          ng-model="stage2Des" 
+	          ng-model="form.stage2Des" 
 	          ng-change="calcHours()" 
 	          style=""> Des
 	      </span>
@@ -148,7 +148,7 @@
           	class="form-control small-field hour" 
           	id="stage2-sdes" 
           	name="stage2_sdes" 
-          	ng-model="stage2Sdes" 
+          	ng-model="form.stage2Sdes" 
           	ng-change="calcHours()"> sDes
           </span>
 
@@ -159,7 +159,7 @@
           	class="form-control small-field hour" 
           	id="stage2-pdes" 
           	name="stage2_pdes" 
-          	ng-model="stage2Pdes" 
+          	ng-model="form.stage2Pdes" 
           	ng-change="calcHours()"> pDes
           </span>
 
@@ -169,7 +169,7 @@
           	class="form-control small-field hour" 
           	id="stage2-cd" 
           	name="stage2_cd" 
-          	ng-model="stage2Cd" 
+          	ng-model="form.stage2Cd" 
           	ng-change="calcHours()"> CD
           </span>
 
@@ -179,7 +179,7 @@
           	class="form-control small-field hour" 
           	id="stage2-gd" 
           	name="stage2_gd" 
-          	ng-model="stage2Gd" 
+          	ng-model="form.stage2Gd" 
           	ng-change="calcHours()"> GD
           </span>
 
@@ -193,13 +193,13 @@
 		type="checkbox" 
 		id="stage2-estimate" 
 		name="stage2_estimate" 
-		ng-model="stage2Estimate" 
+		ng-model="form.stage2Estimate" 
 		ng-click="clearHours()" 
 		ng-change="calcHours()"
-		ng-required="(stage2Des + stage2Sdes + stage2Pdes + stage2Cd + stage2Gd) < 1 && stage2Des && stage2Sdes && stage2Pdes && stage2Cd && stage2Gd"> Need an estimate
+		ng-required="((form.stage2Des + form.stage2Sdes + form.stage2Pdes + form.stage2Cd + form.stage2Gd) < 1) || !form.stage2Des && !form.stage2Sdes && !form.stage2Pdes && !form.stage2Cd && !form.stage2Gd"> Need an estimate
 
 
-		<span ng-show="((stage2Des + stage2Sdes + stage2Pdes + stage2Cd + stage2Gd) < 1 && !stage2Estimate) || !stage2Estimate" class="field-error" >At least one hour required!</span>
+		<span ng-show="!form.stage2Estimate && stage2.stage2_estimate.$invalid && stage2.stage2_estimate.$dirty" class="field-error" >At least one hour required!</span>
 	</div>
 
 
@@ -214,7 +214,7 @@
 			id="stage2-add-info" 
 			name="stage2_add_info" 
 			rows="3" 
-			ng-model="stage2AddInfo">
+			ng-model="form.stage2AddInfo">
 		</textarea>
 	</div>
 
@@ -232,7 +232,7 @@
           id="stage2-materials" 
           name="stage2_materials" 
           multiple="" 
-          ng-model="stage2Materials">
+          ng-model="form.stage2Materials">
   
         </div>
     </div>
@@ -248,7 +248,7 @@
           id="stage2-supp-docs" 
           name="stage2_supp_docs" 
           multiple="" 
-          ng-model="stage2SuppDocs">
+          ng-model="form.stage2SuppDocs">
   
         </div>
     </div>
@@ -264,7 +264,7 @@
 		class="form-control" 
 		id="stage2-location"
 		name="stage2_location"
-		ng-model="stage2Location"
+		ng-model="form.stage2Location"
 		placeholder="Or paste server location here...">
 	</div>
 	

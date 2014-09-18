@@ -10,8 +10,8 @@
 	      id="stage3-creative" 
 	      name="stage3_creative" 
 	      value="Creative" 
-	      ng-true-value="Creative" 
-	      ng-model="stage3Creative"> Creative Brief
+	      ng-model="form.stage3Creative"
+	      ng-required="!form.stage3Technical"> Creative Brief
 	    </label>
 
 	    <label for="stage3-technical" class="checkbox-inline">
@@ -20,9 +20,12 @@
 	      id="stage3-technical" 
 	      name="stage3_technical" 
 	      value="Technical"
-	      ng-true-value="Technical"
-	      ng-model="stage3Technical"> Technical specifications
+	      ng-model="form.stage3Technical"
+	      ng-required="!form.stage3Creative"> Technical specifications
 	    </label>
+
+	    <!-- <span ng-show="!form.stage3Creative && !form.stage3Technical && (stage3.stage3_creative.$dirty || stage3.stage3_technical.$dirty)" class="field-error" >Required!</span> -->
+
 
 	</div>
 
@@ -30,7 +33,7 @@
 	<div class="clearfix"></div>
 
 
-	<div ng-if="stage3Technical">
+	<div ng-if="form.stage3Technical">
 
 		<div class="form-group col-md-4">
 
@@ -39,7 +42,7 @@
 			      class="form-control" 
 			      name="stage3_dimensions" 
 			      id="stage3-dimensions"
-			      ng-model="stage3Dimensions">
+			      ng-model="form.stage3Dimensions">
 		        	<option value="US Letter">US Letter</option>
 		        	<option value="US Tabloid">US Tabloid</option>
 		        	<option value="A5 (UK)">A5 (UK)</option>
@@ -62,7 +65,7 @@
 	      class="form-control" 
 	      name="stage3_orientation" 
 	      id="stage3-orientation"
-	      ng-model="stage3Orientation">
+	      ng-model="form.stage3Orientation">
 	        <option value="Landscape">Landscape</option>
 	        <option value="Portrait">Portrait</option>
 	      </select>
@@ -82,14 +85,14 @@
           id="stage3-pages" 
           name="stage3_pages" 
           placeholder="No" 
-          ng-model="stage3Pages">
+          ng-model="form.stage3Pages">
 
         </div>
 		
 	</div>
 
 
-	<div ng-if="stage3Creative">
+	<div ng-if="form.stage3Creative">
 
 		<div class="form-group col-md-4 ">
 
@@ -98,7 +101,7 @@
 		      class="form-control" 
 		      name="stage3_presented" 
 		      id="stage3-presented"
-		      ng-model="stage3Presented">
+		      ng-model="form.stage3Presented">
 		        <option value="Pitch">Pitch</option>
 		        <option value="RFP">RFP</option>
 		        <option value="Creative Theme">Creative Theme</option>
@@ -113,7 +116,7 @@
         <div class="clearfix"></div>
 
 
-        <div class="form-group col-md-10 " ng-if="stage3Presented === 'Other'">
+        <div class="form-group col-md-10 " ng-if="form.stage3Presented === 'Other'">
 
             <label for="stage3-other-presented" class="control-label">Other</label>
             <textarea 
@@ -121,7 +124,7 @@
 	            id="stage3-other-presented" 
 	            name="stage3_other_presented" 
 	            rows="3" 
-	            ng-model="stage3OtherPresented">
+	            ng-model="form.stage3OtherPresented">
 	        </textarea>
 
         </div>
@@ -135,7 +138,7 @@
 	          id="stage3-objectives" 
 	          name="stage3_objectives" 
 	          rows="3"
-	          ng-model="stage3Objectives">
+	          ng-model="form.stage3Objectives">
       	  </textarea>
 
         </div> -->
@@ -152,7 +155,7 @@
 		      class="form-control" 
 		      name="stage3_branded" 
 		      id="stage3-branded"
-		      ng-model="stage3Branded">
+		      ng-model="form.stage3Branded">
 		        <option value="Branded">Branded</option>
 		        <option value="Unbranded">Unbranded</option>
 		        <option value="Soft branded">Soft branded</option>
@@ -170,7 +173,7 @@
           id="stage3-loc" 
           name="stage3_loc" 
           placeholder="" 
-          ng-model="stage3Loc">
+          ng-model="form.stage3Loc">
         </div>
 
 
@@ -182,7 +185,7 @@
 	          id="stage3-branding" 
 	          name="stage3_branding" 
 	          rows="3" 
-	          ng-model="stage3Branding">
+	          ng-model="form.stage3Branding">
       	  </textarea>
 
         </div>
@@ -196,7 +199,7 @@
 	          id="stage3-sci-back" 
 	          name="stage3_sci_back" 
 	          rows="3" 
-	          ng-model="stage3SciBack">
+	          ng-model="form.stage3SciBack">
       	  </textarea>
 
         </div>
@@ -212,7 +215,7 @@
               id="stage3-ref" 
               name="stage3_ref" 
               multiple="" 
-              ng-model="stage3Ref">
+              ng-model="form.stage3Ref">
 	  
 	        </div>
 	    </div>
@@ -225,7 +228,7 @@
           id="stage3-loc" 
           name="stage3_loc" 
           placeholder="Or paste server location here..." 
-          ng-model="stage3Loc">
+          ng-model="form.stage3Loc">
         </div>
 
 
@@ -238,7 +241,7 @@
           id="stage3-future" 
           name="stage3_future" 
           placeholder="e.g In scientific posters" 
-          ng-model="stage3Future">
+          ng-model="form.stage3Future">
 
         </div>
 		
@@ -253,7 +256,7 @@
 			id="stage3-additional" 
 			name="stage3_additional" 
 			rows="3" 
-			ng-model="stage3Additional"
+			ng-model="form.stage3Additional"
 			required>
 		</textarea>
 		
