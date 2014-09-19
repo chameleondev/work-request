@@ -181,7 +181,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 	        	alert('valid form');
 	            $http({
 	                method  : 'POST',
-	                url     : '/phpmailer/contact-form.php',
+	                url     : 'test1/work-request/phpmailer/contact-form.php',
 	                data    : $.param($scope.form),  //param method from jQuery
 	                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
 	            }).success(function(data){
