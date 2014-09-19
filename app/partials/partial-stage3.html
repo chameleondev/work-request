@@ -24,7 +24,7 @@
 	      ng-required="!form.stage3Creative"> Technical specifications
 	    </label>
 
-	    <!-- <span ng-show="!form.stage3Creative && !form.stage3Technical && (stage3.stage3_creative.$dirty || stage3.stage3_technical.$dirty)" class="field-error" >Required!</span> -->
+	    <span ng-show="!form.stage3Creative && !form.stage3Technical && (stage3.stage3_creative.$dirty || stage3.stage3_technical.$dirty)" class="field-error" >Required!</span>
 
 
 	</div>
@@ -38,11 +38,14 @@
 		<div class="form-group col-md-4">
 
           <label for="stage3-dimensions" class="control-label">Dimensions</label>
+
+          <span ng-show="!form.stage3Dimensions && stage3.stage3_dimensions.$dirty" class="field-error" >Required!</span>
 	         <select 
 			      class="form-control" 
 			      name="stage3_dimensions" 
 			      id="stage3-dimensions"
-			      ng-model="form.stage3Dimensions">
+			      ng-model="form.stage3Dimensions"
+			      required>
 		        	<option value="US Letter">US Letter</option>
 		        	<option value="US Tabloid">US Tabloid</option>
 		        	<option value="A5 (UK)">A5 (UK)</option>
@@ -61,11 +64,15 @@
         <div class="form-group col-md-4">
 
 	      <label for="stage3-orientation" class="control-label">Orientation</label>
+
+		  <span ng-show="!form.stage3Orientation && stage3.stage3_orientation.$dirty" class="field-error" >Required!</span>
+
 	      <select 
 	      class="form-control" 
 	      name="stage3_orientation" 
 	      id="stage3-orientation"
-	      ng-model="form.stage3Orientation">
+	      ng-model="form.stage3Orientation"
+	      required>
 	        <option value="Landscape">Landscape</option>
 	        <option value="Portrait">Portrait</option>
 	      </select>
@@ -79,13 +86,18 @@
 	    <div class="form-group col-md-4">
 
           <label for="stage3-pages" class="control-label">Number of pages</label>
+
+		  <span ng-show="!form.stage3Pages && stage3.stage3_pages.$dirty && stage3.stage3_pages.$invalid" class="field-error" >Required!</span>
+
           <input 
           type="number" 
           class="form-control small-field" 
           id="stage3-pages" 
           name="stage3_pages" 
           placeholder="No" 
-          ng-model="form.stage3Pages">
+          ng-model="form.stage3Pages"
+          required
+          min="1">
 
         </div>
 		
@@ -97,11 +109,15 @@
 		<div class="form-group col-md-4 ">
 
             <label for="stage3-presented" class="control-label">How will the work be used or presented?</label>
+
+			<span ng-show="!form.stage3Presented && stage3.stage3Presented.$dirty" class="field-error" >Required!</span>
+
 		      <select 
 		      class="form-control" 
 		      name="stage3_presented" 
 		      id="stage3-presented"
-		      ng-model="form.stage3Presented">
+		      ng-model="form.stage3Presented"
+		      required>
 		        <option value="Pitch">Pitch</option>
 		        <option value="RFP">RFP</option>
 		        <option value="Creative Theme">Creative Theme</option>
@@ -151,11 +167,15 @@
         <div class="form-group col-md-4 ">
 
             <label for="stage3-branded" class="control-label">Branding options</label>
+
+            <span ng-show="!form.stage3Branded && stage3.stage3_branded.$dirty" class="field-error" >Required!</span>
+            
 		      <select 
 		      class="form-control" 
 		      name="stage3_branded" 
 		      id="stage3-branded"
-		      ng-model="form.stage3Branded">
+		      ng-model="form.stage3Branded"
+		      required>
 		        <option value="Branded">Branded</option>
 		        <option value="Unbranded">Unbranded</option>
 		        <option value="Soft branded">Soft branded</option>
@@ -256,8 +276,7 @@
 			id="stage3-additional" 
 			name="stage3_additional" 
 			rows="3" 
-			ng-model="form.stage3Additional"
-			required>
+			ng-model="form.stage3Additional">
 		</textarea>
 		
     </div> 

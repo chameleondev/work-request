@@ -24,25 +24,27 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 		//Initialize the swiper
 		window.mySwiper = new Swiper('.swiper-container',{
-			grabCursor: true,
+			swipeToNext: false,
+			swipeToPrev : false,
+			grabCursor: false,
 			onFirstInit : function(){
 				
 			},
-			onTouchStart :function(){
+			// onTouchStart :function(){
 
-				var stage = mySwiper.activeSlide().id;
+			// 	var stage = mySwiper.activeSlide().id;
 
-				//check if the active stage of the form is valid
-				if ($scope.request_form[stage].$invalid) {
+			// 	//check if the active stage of the form is valid
+			// 	if ($scope.request_form[stage].$invalid) {
 
-					mySwiper.params.swipeToNext = false;
+			// 		mySwiper.params.swipeToNext = false;
 
-				}else{
+			// 	}else{
 
-					mySwiper.params.swipeToNext = true;
+			// 		mySwiper.params.swipeToNext = true;
 
-				}
-			},
+			// 	}
+			// },
 			onSlideNext: function(){
 				var prevSlide = $('.swiper-slide-active').prev().attr('id');
 				$('.progress-bar.'+prevSlide).css('width','33.3%');
@@ -55,7 +57,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 			onSlideChangeStart : function(){
 				var stage = mySwiper.activeSlide().id;
 
-				if ($scope.request_form[stage].$valid) {
+				if ($scope.request_form[stage].$valid && stage != 'stage4') {
 					$('.arrow-right ').addClass('pulse');
 				}else{
 					$('.arrow-right ').removeClass('pulse');
@@ -76,7 +78,10 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		$('.arrow-left').on('click', function(e){
 			e.preventDefault();
 
-			mySwiper.swipePrev();
+			if (!$scope.submitted) {
+				mySwiper.swipePrev();
+			};
+			
 		});
 		//click for right arrow
 		$('.arrow-right').on('click', function(e){
@@ -140,7 +145,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 			// a watch for each stage of the form object's valid property
 			$scope.$watch('request_form.'+value+'.$valid',function(){
 
-				if ($scope.request_form[value].$valid) {
+				if ($scope.request_form[value].$valid && $scope.request_form[value]) {
 					$('.arrow-right ').addClass('pulse');
 				}else{
 					$('.arrow-right ').removeClass('pulse');
@@ -150,6 +155,19 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 		});
+
+
+
+		$scope.submitMyForm = function(){
+
+			if (!$scope.submitted) {
+				$scope.submitted = true;
+
+			};
+			
+
+
+		}
 
 
 

@@ -740,30 +740,30 @@ pulse
 @keyframes pulse {
 	0% {
 		transform: scale(0.9);
-		opacity: 0.7;		
+		opacity: 0.4;		
 	}
 	50% {
-		transform: scale(1);
+		transform: scale(1.5);
 		opacity: 1;	
 	}	
 	100% {
 		transform: scale(0.9);
-		opacity: 0.7;	
+		opacity: 0.4;	
 	}			
 }
 
 @-webkit-keyframes pulse {
 	0% {
 		-webkit-transform: scale(0.95);
-		opacity: 0.7;		
+		opacity: 0.4;		
 	}
 	50% {
-		-webkit-transform: scale(1);
+		-webkit-transform: scale(1.5);
 		opacity: 1;	
 	}	
 	100% {
 		-webkit-transform: scale(0.95);
-		opacity: 0.7;	
+		opacity: 0.4;	
 	}			
 }
 
