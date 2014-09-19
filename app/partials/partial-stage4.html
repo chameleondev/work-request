@@ -2,7 +2,7 @@
 
 	<div class="form-group">
 
-	    <button type="button" class="btn btn-primary btn-lg center-block submit-btn" ng-click="submitMyForm()">
+	    <button type="submit" class="btn btn-primary btn-lg center-block submit-btn" ng-disabled="submitButtonDisabled">
 	    	<i class="glyphicon glyphicon-envelope"></i>
 	    	Submit Form
 	    </button>
@@ -20,7 +20,12 @@
 
 	</div>
 
-	
+	<ul>
+		<li ng-repeat="(param,value) in form">
+			 {{param}} : {{value}} 
+		</li>
+	</ul>
+
 
  
 

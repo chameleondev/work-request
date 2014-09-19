@@ -212,6 +212,12 @@ border: #F00 1px solid;
     height: 100px;
     width: 200px;
     margin-top: 215px;
+    background-color: #FFA500;
+    border:none;
+}
+
+.submit-btn:hover{
+  background-color: #FF7000;
 }
 
 .alert-success{
