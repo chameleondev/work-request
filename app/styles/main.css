@@ -27,7 +27,8 @@
  
 
 body {
-  background: #fafafa;
+  /*background: #fafafa;*/
+  background: red;
   font-family: 'EtelkaLight',"Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
@@ -78,6 +79,7 @@ margin-bottom: 25px;
 .form-window section{
   height: 50px;
   margin-bottom: 20px;
+  padding: 10px 0;
 }
 
 .form-window section .progress{
@@ -96,32 +98,63 @@ margin-bottom: 25px;
   width:50px;
   border-radius: 50%;
   position: absolute;
-  background-color: #FFDB99;
+  /*background-color: #FFDB99;*/
   -webkit-transition:all 1s;
   transition:all 1s;
+  background-size: 156px;
+  background-image: url(../images/stages.png);
+  background-position: -2px -4px;
+  transform: scale(1);
 }
 
 .form-window .section-points .point.active{
-  box-shadow: 1px 5px 6px #888;
-  background: #FFA500;
+  /*box-shadow: 1px 5px 6px #888;*/
+  transform: scale(1.5);
 }
 
 .form-window .section-points .point1{
   left: 0px;
+  background-position: -104px -1px;
+}
+.form-window .section-points .point1.active{
+  background-position: -2px -1px;
+}
+
+.form-window .section-points .point1.dirty{
+  background-position: -53px -1px !important;
 }
 
 .form-window .section-points .point2{
   left: 260px;
+  background-position: -102px -54px;
+}
+
+.form-window .section-points .point2.active{
+  background-position: -2px -54px;
+}
+
+.form-window .section-points .point2.dirty{
+  background-position: -53px -54px !important;
 }
 
 .form-window .section-points .point3{
   left: 545px;
+  background-position: -104px -107px;
 }
+
+.form-window .section-points .point3.active{
+  background-position: -2px -105px;
+}
+
 
 .form-window .section-points .point4{
   left: 810px;
+  background-position: -103px -159px;
 }
 
+.form-window .section-points .point4.active{
+  background-position: -158px -158px
+}
 
 
 .checkme-down{
@@ -150,6 +183,10 @@ display: inline;
 
 .arrow.arrow-left{
   background-position: 70px;
+}
+
+.arrow.arrow-right{
+  opacity: 0.5
 }
 
 .ng-enter{
@@ -216,10 +253,24 @@ border: #F00 1px solid;
     border:none;
 }
 
+.submit-btn[disabled]{
+  background-color: #FFA500;
+  opacity: 0.5;
+}
+
 .submit-btn:hover{
   background-color: #FF7000;
 }
 
 .alert-success{
   text-align: center;
+}
+
+.help-icon{
+  background: url('../images/help.png');
+  height:20px;
+  width:20px;
+  display: inline-block;
+  background-size: 20px;
+  margin-left: 10px;
 }

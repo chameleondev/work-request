@@ -17,10 +17,11 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 	// create this object so that the form scope can be accessed in the controller - models need to be form.modelName
 	$scope.form = {};
 
-
 	
 	// Timeout so that swiper loads after angular has rendered all templates
 	$timeout(function(){
+
+		$('.help-icon').tooltip();
 
 		//Initialize the swiper
 		window.mySwiper = new Swiper('.swiper-container',{
@@ -55,9 +56,9 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 				$('.progress-bar.'+activeSlide).css('width','0');
 			},
 			onSlideChangeStart : function(){
-				var stage = mySwiper.activeSlide().id;
+				$scope.stage = mySwiper.activeSlide().id;
 
-				if ($scope.request_form[stage].$valid && stage != 'stage4') {
+				if ($scope.request_form[$scope.stage].$valid && $scope.stage != 'stage4') {
 					$('.arrow-right ').addClass('pulse');
 				}else{
 					$('.arrow-right ').removeClass('pulse');
@@ -65,11 +66,11 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 				$('.point').removeClass('active');
 
-				var stageNum = stage[5];
+				$scope.stageNum = Number($scope.stage[5]);
 
-				// console.log(stageNum);
+				$scope.$apply();
 
-				$('.point'+stageNum).addClass('active');
+				$('.point'+$scope.stageNum).addClass('active');
 			}
 		});
 
@@ -181,20 +182,16 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 	        	alert('valid form');
 	            $http({
 	                method  : 'POST',
-	                url     : 'test1/work-request/phpmailer/contact-form.php',
+	                url     : 'phpmailer/contact-form.php',
 	                data    : $.param($scope.form),  //param method from jQuery
 	                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
 	            }).success(function(data){
 	                console.log(data);
-	                if (data.success) { //success comes from the return json object
-	                    $scope.submitButtonDisabled = true;
-	                    $scope.resultMessage = data.message;
-	                    $scope.result='bg-success';
-	                } else {
-	                    $scope.submitButtonDisabled = false;
-	                    $scope.resultMessage = data.message;
-	                    $scope.result='bg-danger';
-	                }
+	     
+                    $scope.submitButtonDisabled = true;
+                    $scope.resultMessage = data.message;
+                    $scope.result='bg-success';
+
 	            });
 	        } else {
 	        	alert('invalid form');

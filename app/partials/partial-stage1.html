@@ -7,6 +7,8 @@
 	<div class="form-group col-md-6">
 		<label for="stage1-code">Job Code</label>
 
+		<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
 		<span ng-show="stage1.stage1_code.$invalid && stage1.stage1_code.$dirty" class="field-error" >Required!</span>
 
 		<input 
@@ -152,7 +154,9 @@
 	          type="checkbox" 
 	          id="stage1-bug-in-pap" 
 	          name="stage1_bug_in_pap" 
-	          ng-model="form.stage1BugInPap" 
+	          ng-model="form.stage1BugInPap"
+	          ng-true-value="Budget in Paprika" 
+	          ng-false-value="" 
 	          value="Budget in Paprika" 
 	          ng-required="!form.stage1NbOrInt"> Budget in Paprika
 	        </label>
@@ -164,6 +168,8 @@
 	          id="stage1-nb-or-int" 
 	          name="stage1_nb_or_int" 
 	          ng-model="form.stage1NbOrInt" 
+	          ng-true-value="New Business or Internal"
+	          ng-false-value=""
 	          value="NB or internal" 
 	          ng-required="!form.stage1BugInPap"> New Business or Internal
 	        </label>
@@ -192,7 +198,8 @@
 	          name="stage1_new_des_proj" 
 	          ng-model="form.stage1NewDesProj" 
 	          value="NB or internal" 
-	          ng-click="selectOne()" 
+	       	  ng-true-value="Design project"
+	       	  ng-false-value=""
 	          ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project
 	        </label>
 
@@ -203,7 +210,8 @@
 	          name="stage1_new_stud_proj" 
 	          ng-model="form.stage1NewStudProj" 
 	          value="NB or internal" 
-	          ng-click="selectOne()" 
+	       	  ng-true-value="Typesetting project"
+	       	  ng-false-value=""
 	          ng-required="!form.stage1NewDesProj && !form.stage1DigProj"> Typesetting project
 	        </label>
 
@@ -215,7 +223,8 @@
 	          name="stage1_dig_proj" 
 	          ng-model="form.stage1DigProj" 
 	          value="Budget in Paprika" 
-	          ng-click="selectOne($event)" 
+	       	  ng-true-value="Digital project"
+	       	  ng-false-value=""
 	          ng-required="!form.stage1NewDesProj && !form.stage1NewStudProj"> Digital project
 	        </label>
 

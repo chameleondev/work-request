@@ -5,8 +5,8 @@
     "jquery": "~1.11.1",
     "angular": "~1.2.23",
     "angular-ui-router": "~0.2.11",
-    "bootstrap-css-only": "~3.2.0",
     "angular-animate": "~1.2.23",
-    "swiper": "~2.7.0"
+    "swiper": "~2.7.0",
+    "bootstrap": "~3.2.0"
   }
 }

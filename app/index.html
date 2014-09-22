@@ -9,8 +9,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/swiper/dist/idangerous.swiper.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -32,10 +32,9 @@
             Creative Work Request
           </div>
         </h1>
-      </div>
+      </div> 
 
       <div class="clearfix"></div>
-      
 
 
       
@@ -56,9 +55,9 @@
           
           <section>
             <div class="section-points visible-lg">
-              <div class="point1 point active"></div>
-              <div class="point2 point"></div>
-              <div class="point3 point"></div>
+              <div class="point1 point active" ng-class="{'dirty': stageNum > 1}"></div>
+              <div class="point2 point" ng-class="{'dirty': stageNum > 2}"></div>
+              <div class="point3 point" ng-class="{'dirty': stageNum > 3}"></div>
               <div class="point4 point"></div>
             </div>
 
@@ -121,6 +120,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/swiper/dist/idangerous.swiper.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
