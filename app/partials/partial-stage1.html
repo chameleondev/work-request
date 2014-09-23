@@ -51,13 +51,15 @@
 	          Existing Job
 	        </label>
 
+	        <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
 	        <span ng-show="stage1.stage1_new_existing.$invalid && stage1.stage1_new_existing.$dirty" class="field-error" >Required!</span>
         
     </div>
 
    	<div class="clearfix"></div>
 	
-	<div class="info-nw-ex" ng-if="form.stage1Job === 'New job'">
+	<div class="info-nw-ex" ng-if="form.stage1Job === 'New job'" tooltip>
 		
 		<div class="form-group col-md-4">
 			<label for="stage1-client">Client</label>
@@ -144,8 +146,10 @@
 		<div class="form-group col-md-6">
         
 	        <label class="control-label">Select one </label>
+
+	        <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
 			
-			<span ng-show="!form.stage1NbOrInt && !form.stage1BugInPap && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty)" class="field-error" >Required!</span>
+			<!-- <span ng-show="form.stage1NbOrInt === 'no'  && form.stage1BugInPap === 'no' && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty)" class="field-error" >Required!</span> -->
 
 	        <br>
 
@@ -156,8 +160,7 @@
 	          name="stage1_bug_in_pap" 
 	          ng-model="form.stage1BugInPap"
 	          ng-true-value="Budget in Paprika" 
-	          ng-false-value="" 
-	          value="Budget in Paprika" 
+	          ng-false-value="no" 
 	          ng-required="!form.stage1NbOrInt"> Budget in Paprika
 	        </label>
 
@@ -169,8 +172,7 @@
 	          name="stage1_nb_or_int" 
 	          ng-model="form.stage1NbOrInt" 
 	          ng-true-value="New Business or Internal"
-	          ng-false-value=""
-	          value="NB or internal" 
+	          ng-false-value="no"
 	          ng-required="!form.stage1BugInPap"> New Business or Internal
 	        </label>
 
@@ -183,53 +185,7 @@
 		<div class="clearfix"></div>
 
 
-	    <div class="form-group col-md-12">
-        
-	        <label class="control-label">Check all that applies</label>
-			
-			<span ng-show="!form.stage1DigProj && !form.stage1NewStudProj &&  !form.stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class="field-error" >Required!</span>
-
-	        <br>
-
-	        <label class="checkbox-inline" for="stage1-new-des-proj">
-	          <input 
-	          type="checkbox" 
-	          id="stage1-new-des-proj" 
-	          name="stage1_new_des_proj" 
-	          ng-model="form.stage1NewDesProj" 
-	          value="NB or internal" 
-	       	  ng-true-value="Design project"
-	       	  ng-false-value=""
-	          ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project
-	        </label>
-
-	        <label class="checkbox-inline" for="stage1-new-stud-proj">
-	          <input 
-	          type="checkbox" 
-	          id="stage1-new-stud-proj" 
-	          name="stage1_new_stud_proj" 
-	          ng-model="form.stage1NewStudProj" 
-	          value="NB or internal" 
-	       	  ng-true-value="Typesetting project"
-	       	  ng-false-value=""
-	          ng-required="!form.stage1NewDesProj && !form.stage1DigProj"> Typesetting project
-	        </label>
-
-
-	        <label class="checkbox-inline" for="stage1-dig-proj">
-	          <input 
-	          type="checkbox" 
-	          id="stage1-dig-proj" 
-	          name="stage1_dig_proj" 
-	          ng-model="form.stage1DigProj" 
-	          value="Budget in Paprika" 
-	       	  ng-true-value="Digital project"
-	       	  ng-false-value=""
-	          ng-required="!form.stage1NewDesProj && !form.stage1NewStudProj"> Digital project
-	        </label>
-
-			
-
+	    <!-- s -->
 	    </div>
 		
 	</div>

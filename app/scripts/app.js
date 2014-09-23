@@ -64,13 +64,11 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 					$('.arrow-right ').removeClass('pulse');
 				};
 
-				$('.point').removeClass('active');
 
 				$scope.stageNum = Number($scope.stage[5]);
 
 				$scope.$apply();
 
-				$('.point'+$scope.stageNum).addClass('active');
 			}
 		});
 
@@ -100,9 +98,6 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 		});
 
 
-		$scope.selectOne = function(e){
-			console.log(e);
-		}
 
 		//set the form to dirty so that the validation errors can be shown
 		var validateForm = function(){
@@ -159,15 +154,6 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-		$scope.submitMyForm = function(){
-
-			if (!$scope.submitted) {
-				$scope.submitted = true;
-
-			};
-
-		}
-
 
 		$scope.result = 'hidden';
 	    $scope.resultMessage;
@@ -175,11 +161,11 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 	    
 	    $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
 	    $scope.submit = function() {
-	    	alert('submitted');
+	    	// alert('submitted');
 	        $scope.submitted = true;
 	        $scope.submitButtonDisabled = true;
 	        if ($scope.request_form.$valid) {
-	        	alert('valid form');
+	        	// alert('valid form');
 	            $http({
 	                method  : 'POST',
 	                url     : 'phpmailer/contact-form.php',
@@ -205,67 +191,21 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 	},150);
 
-
-
-
-	 // var isFormValid = function ($scope, ngForm) {
-	 //      var i = null;
-	 //      //$scope.$emit('$validate');
-	 //      $scope.$broadcast('$validate');
-	      
-	 //      if(! ngForm.$invalid) {
-	 //        return true;
-	 //      } else {
-	 //        // make the form fields '$dirty' so that the validation messages would be shown
-	 //        ngForm.$dirty = true;
-	        
-	 //        for(i in ngForm) {
-	 //          if(ngForm[i] && ngForm[i].hasOwnProperty && ngForm[i].hasOwnProperty('$dirty')) { // TODO: is 'field.$invalid' test required?
-	 //            ngForm[i].$dirty = true;
-	 //          }
-	 //        }
-	 //      }
-	
-
-
 	
 }]);
 
 
-// app.directive('swiper', ['swiper', function(){
-// 	// Runs during compile
-// 	return {
-// 		 name: 'swiper',
-// 		// priority: 1,
-// 		// terminal: true,
-// 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-// 		// controller: function($scope, $element, $attrs, $transclude) {},
-// 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-// 		 restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
-// 		// template: '',
-// 		// templateUrl: '',
-// 		// replace: true,
-// 		// transclude: true,
-// 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-// 		link: function(scope, elem, attrs) {
-// 			alert('hello');
-// 		}
-// 	};
-// }]);
 
 
-// app.directive('swiper', function() {
-//     return {
-//         restrict: 'A',
-//         link: function(scope, element, attrs) {
+app.directive('tooltip', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
 
+			$timeout(function(){
+				$('.help-icon').tooltip();
+			},100)
 
-// 			var mySwiper = new Swiper('.swiper-container',{ 
-// 				grabCursor: true
-// 			});
-
-			
-
-//         }
-//     };
-// }); 
+        }
+    };
+}); 

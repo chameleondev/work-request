@@ -23,7 +23,33 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+  
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Work Request</a></li>
+            <li><a href="#">Employee Search</a></li>
+            <li><a href="#">Email Signature</a></li>
+          </ul>
+
+        
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    
     <div class="container" ng-controller="Ctrl">
 
       <div class="col-md-10 col-md-offset-1">
@@ -55,10 +81,10 @@
           
           <section>
             <div class="section-points visible-lg">
-              <div class="point1 point active" ng-class="{'dirty': stageNum > 1}"></div>
-              <div class="point2 point" ng-class="{'dirty': stageNum > 2}"></div>
-              <div class="point3 point" ng-class="{'dirty': stageNum > 3}"></div>
-              <div class="point4 point"></div>
+              <div class="point1 point active" ng-class="{'dirty': stageNum > 1,'active' : stageNum === 1}"></div>
+              <div class="point2 point" ng-class="{'dirty': stageNum > 2,'active' : stageNum === 2}"></div>
+              <div class="point3 point" ng-class="{'dirty': stageNum > 3,'active' : stageNum === 3}"></div>
+              <div class="point4 point" ng-class="{'active' : stageNum === 4}"></div>
             </div>
 
         
