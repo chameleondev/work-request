@@ -4,7 +4,7 @@
     <h2 class="col-md-12">Job Information</h2>
     
 
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-2">
 		<label for="stage1-code">Job Code</label>
 
 		<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
@@ -60,8 +60,59 @@
    	<div class="clearfix"></div>
 	
 	<div class="info-nw-ex" ng-if="form.stage1Job === 'New job'" tooltip>
+
+
+		<div class="form-group col-md-12"> 
+
+			<label class=control-label>Type of project (Check all that applies)</label> 
+
+			<span ng-show="!form.stage1DigProj && !form.stage1NewStudProj &&  !form.stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class=field-error>Required!</span> <br> 
+
+			<label class="checkbox-inline" for="stage1-new-des-proj"> 
+
+				<input 
+				type=checkbox 
+				id="stage1-new-des-proj" 
+				name="stage1_new_des_proj" 
+				ng-model="form.stage1NewDesProj" 
+				value="NB or internal" 
+				ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project 
+			</label> 
+
+			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
+			<label class="checkbox-inline" for="stage1-new-stud-proj"> 
+
+				<input 
+				type="checkbox" 
+				id="stage1-new-stud-proj" 
+				name="stage1_new_stud_proj" 
+				ng-model="form.stage1NewStudProj" 
+				value="NB or internal" 
+				ng-required="!form.stage1NewDesProj && !form.stage1DigProj"> Typesetting project 
+			</label> 
+
+			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
+			<label class="checkbox-inline" for="stage1-dig-proj"> 
+
+				<input 
+				type="checkbox" 
+				id="stage1-dig-proj" 
+				name="stage1_dig_proj" 
+				ng-model="form.stage1DigProj" 
+				value="Budget in Paprika" 
+				ng-required="!form.stage1NewDesProj && !form.stage1NewStudProj"> Digital project 
+			</label> 
+
+			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
+
+		</div>
+
+		<div class="clearfix"></div>
 		
-		<div class="form-group col-md-4">
+		<div class="form-group col-md-2">
 			<label for="stage1-client">Client</label>
 
 			<span ng-show="stage1.stage1_client.$invalid && stage1.stage1_client.$dirty" class="field-error" >Required!</span>
@@ -77,7 +128,7 @@
 		</div>
 
 
-		<div class="form-group col-md-4">
+		<div class="form-group col-md-2">
 			<label for="stage1-product">Product</label>
 			
 			<span ng-show="stage1.stage1_product.$invalid && stage1.stage1_product.$dirty" class="field-error" >Required!</span>
@@ -143,13 +194,13 @@
 		</div>
 
 
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-8">
         
-	        <label class="control-label">Select one </label>
+	        <label class="control-label">Budget status (select one) </label>
 
 	        <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
 			
-			<!-- <span ng-show="form.stage1NbOrInt === 'no'  && form.stage1BugInPap === 'no' && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty)" class="field-error" >Required!</span> -->
+			 <span ng-show="!form.stage1NbOrInt && !form.stage1BugInPap && !form.stage1Estimate && (stage1.stage1_bug_in_pap.$dirty || stage1.stage1_nb_or_int.$dirty || stage1.stage1_estimate.$dirty)" class="field-error" >Required!</span>
 
 	        <br>
 
@@ -159,9 +210,7 @@
 	          id="stage1-bug-in-pap" 
 	          name="stage1_bug_in_pap" 
 	          ng-model="form.stage1BugInPap"
-	          ng-true-value="Budget in Paprika" 
-	          ng-false-value="no" 
-	          ng-required="!form.stage1NbOrInt"> Budget in Paprika
+	          ng-required="!form.stage1NbOrInt && !form.stage1Estimate"> Budget in Paprika
 	        </label>
 
 
@@ -171,18 +220,23 @@
 	          id="stage1-nb-or-int" 
 	          name="stage1_nb_or_int" 
 	          ng-model="form.stage1NbOrInt" 
-	          ng-true-value="New Business or Internal"
-	          ng-false-value="no"
-	          ng-required="!form.stage1BugInPap"> New Business or Internal
+	          ng-required="!form.stage1BugInPap && !form.stage1Estimate"> New Business or Internal
 	        </label>
 
-
+			<label class="checkbox-inline" for="stage1-estimate">
+	          <input 
+	          type="checkbox" 
+	          id="stage1-estimate" 
+	          name="stage1_estimate" 
+	          ng-model="form.stage1Estimate" 
+	          ng-required="!form.stage1BugInPap && !form.stage1NbOrInt"> Need an estimate
+	        </label>
 
 
 	    </div>
 		
 			
-		<div class="clearfix"></div>
+		
 
 
 	    <!-- s -->

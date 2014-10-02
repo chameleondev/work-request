@@ -33,77 +33,6 @@
 	<div class="clearfix"></div>
 
 
-	<div ng-if="form.stage3Technical">
-
-		<div class="form-group col-md-4">
-
-          <label for="stage3-dimensions" class="control-label">Dimensions</label>
-
-          <span ng-show="!form.stage3Dimensions && stage3.stage3_dimensions.$dirty" class="field-error" >Required!</span>
-	         <select 
-			      class="form-control" 
-			      name="stage3_dimensions" 
-			      id="stage3-dimensions"
-			      ng-model="form.stage3Dimensions"
-			      required>
-		        	<option value="US Letter">US Letter</option>
-		        	<option value="US Tabloid">US Tabloid</option>
-		        	<option value="A5 (UK)">A5 (UK)</option>
-		        	<option value="A4 (UK)">A4 (UK)</option>
-		        	<option value="A3 (UK)">A3 (UK)</option>
-		        	<option value="A2 (UK)">A2 (UK)</option>
-		        	<option value="A1 (UK)">A1 (UK)</option>
-		        	<option value="Mobile">Mobile</option>
-		        	<option value="Tablet">Tablet</option>
-		        	<option value="Desktop">Desktop</option>
-		        	<option value="Other">Other</option>
-		      </select>
-        </div>
-
-
-        <div class="form-group col-md-4">
-
-	      <label for="stage3-orientation" class="control-label">Orientation</label>
-
-		  <span ng-show="!form.stage3Orientation && stage3.stage3_orientation.$dirty" class="field-error" >Required!</span>
-
-	      <select 
-	      class="form-control" 
-	      name="stage3_orientation" 
-	      id="stage3-orientation"
-	      ng-model="form.stage3Orientation"
-	      required>
-	        <option value="Landscape">Landscape</option>
-	        <option value="Portrait">Portrait</option>
-	      </select>
-
-	    </div>  
-
-
-	    <div class="clearfix"></div>
-
-
-	    <div class="form-group col-md-4">
-
-          <label for="stage3-pages" class="control-label">Number of pages</label>
-
-		  <span ng-show="!form.stage3Pages && stage3.stage3_pages.$dirty && stage3.stage3_pages.$invalid" class="field-error" >Required!</span>
-
-          <input 
-          type="number" 
-          class="form-control small-field" 
-          id="stage3-pages" 
-          name="stage3_pages" 
-          placeholder="No" 
-          ng-model="form.stage3Pages"
-          required
-          min="1">
-
-        </div>
-		
-	</div>
-
-
 	<div ng-if="form.stage3Creative">
 
 		<div class="form-group col-md-4 ">
@@ -162,8 +91,6 @@
         <div class="clearfix"></div>
 
 
-        <h3>Branding</h3>
-
         <div class="form-group col-md-4 ">
 
             <label for="stage3-branded" class="control-label">Branding options</label>
@@ -199,7 +126,7 @@
 
         <div class="form-group col-md-10">
 
-          <label for="stage3-branding" class="control-label">Visual style, Look and feel, Branding specifications</label>
+          <label for="stage3-branding" class="control-label">Visual style, look and feel, branding specifications</label>
           <textarea 
 	          class="form-control" 
 	          id="stage3-branding" 
@@ -279,6 +206,77 @@
 			ng-model="form.stage3Additional">
 		</textarea>
 		
-    </div> 
+    </div>
+
+    <div ng-if="form.stage3Technical">
+
+		<div class="form-group col-md-4">
+
+          <label for="stage3-dimensions" class="control-label">Dimensions</label>
+
+          <span ng-show="!form.stage3Dimensions && stage3.stage3_dimensions.$dirty" class="field-error" >Required!</span>
+	         <select 
+			      class="form-control" 
+			      name="stage3_dimensions" 
+			      id="stage3-dimensions"
+			      ng-model="form.stage3Dimensions"
+			      required>
+		        	<option value="US Letter">US Letter</option>
+		        	<option value="US Tabloid">US Tabloid</option>
+		        	<option value="A5 (UK)">A5 (UK)</option>
+		        	<option value="A4 (UK)">A4 (UK)</option>
+		        	<option value="A3 (UK)">A3 (UK)</option>
+		        	<option value="A2 (UK)">A2 (UK)</option>
+		        	<option value="A1 (UK)">A1 (UK)</option>
+		        	<option value="Mobile">Mobile</option>
+		        	<option value="Tablet">Tablet</option>
+		        	<option value="Desktop">Desktop</option>
+		        	<option value="Other">Other</option>
+		      </select>
+        </div>
+
+
+        <div class="form-group col-md-4">
+
+	      <label for="stage3-orientation" class="control-label">Orientation</label>
+
+		  <span ng-show="!form.stage3Orientation && stage3.stage3_orientation.$dirty" class="field-error" >Required!</span>
+
+	      <select 
+	      class="form-control" 
+	      name="stage3_orientation" 
+	      id="stage3-orientation"
+	      ng-model="form.stage3Orientation"
+	      required>
+	        <option value="Landscape">Landscape</option>
+	        <option value="Portrait">Portrait</option>
+	        <option value="Not Specified">Not Specified</option>
+	      </select>
+
+	    </div>  
+
+
+	    <div class="clearfix"></div>
+
+
+	    <div class="form-group col-md-4">
+
+          <label for="stage3-pages" class="control-label">Number of pages</label>
+
+		  <span ng-show="!form.stage3Pages && stage3.stage3_pages.$dirty && stage3.stage3_pages.$invalid" class="field-error" >Required!</span>
+
+          <input 
+          type="number" 
+          class="form-control small-field" 
+          id="stage3-pages" 
+          name="stage3_pages" 
+          placeholder="No" 
+          ng-model="form.stage3Pages"
+          required
+          min="1">
+
+        </div>
+		
+	</div>
 
 </ng-form>

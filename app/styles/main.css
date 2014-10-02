@@ -37,6 +37,11 @@ h1{
   margin-bottom: 40px;
 }
 
+input[type=date]::-webkit-clear-button,
+input[type=date]::-webkit-inner-spin-button {
+    display: none;
+}
+
 
 .form-group {
 margin-bottom: 25px;
@@ -167,6 +172,10 @@ margin-bottom: 25px;
   background-position: -158px -158px
 }
 
+.form-window table td{
+  border: none !important;
+  padding: 0 !important;
+}
 
 .checkme-down{
   margin-top: 30px;
@@ -217,6 +226,8 @@ display: inline;
   color: red;
   font-size: 12px;
   font-weight: bold;
+  margin-top: 3px;
+  margin-left: 5px;
 }
 
 .field-error.ng-hide-add { 
@@ -284,4 +295,7 @@ border: #F00 1px solid;
   display: inline-block;
   background-size: 20px;
   margin-left: 10px;
+  position: relative;
+  top: 4px;
 }
+

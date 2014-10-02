@@ -5,6 +5,8 @@
 	<div class="form-group col-md-10">
 		<label for="stage2-desc">Task description</label>
 
+		<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
 		<span ng-show="stage2.stage2_desc.$invalid && stage2.stage2_desc.$dirty" class="field-error" >Required!</span>
 
 		<textarea 
@@ -25,12 +27,15 @@
 
 	      <label for="stage2-draft-date" class="control-label">First draft by</label>
 
+	      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
 	      <input 
 	      type="date" 
 	      class="form-control" 
 	      id="stage2-draft-date" 
 	      name="stage2_draft_date" 
-	      ng-model="form.stage2DraftDate">
+	      ng-model="form.stage2DraftDate"
+	      placeholder="dd/mm/yyyy">
 
     </div>
 
@@ -55,6 +60,8 @@
     <div class="form-group col-md-3">
 	      <label for="stage2-final-date" class="control-label">Final delivery date</label>
 
+	      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
+
 		  <span ng-show="stage2.stage2_final_date.$invalid && stage2.stage2_final_date.$dirty" class="field-error" >Required!</span>
 
 	      <input 
@@ -63,6 +70,7 @@
 	      id="stage2-final-date" 
 	      name="stage2_final_date" 
 	      ng-model="form.stage2FinalDate"
+	      placeholder="dd/mm/yyyy"
 	      required>
 
     </div>
@@ -95,8 +103,10 @@
         id="stage2-immediately" 
         name="stage2_immediately" 
         value="Immediately"
-        ng-model="form.stage2Immediately"> ASAP
+        ng-model="form.stage2Immediately"> ASAP 
       </label>
+
+      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem"></span>
 
     </div>
 
@@ -124,82 +134,6 @@
         
     </div>
 
-
-   	<div class="clearfix"></div>
-
-
-   	<div class="col-md-12 hours-section">
-          <label class="control-label">Hours for this task</label>
-          <span>
-          	<input 
-          	  type="number" 
-	          class="form-control small-field hour" 
-	          id="stage2-des" 
-	          name="stage2_des" 
-	          ng-model="form.stage2Des" 
-	          ng-change="calcHours()" 
-	          style=""> Des
-	      </span>
-
-          <span>
-          	<input 
-          	type="number" 
-          	class="form-control small-field hour" 
-          	id="stage2-sdes" 
-          	name="stage2_sdes" 
-          	ng-model="form.stage2Sdes" 
-          	ng-change="calcHours()"> sDes
-          </span>
-
-          <span>
-
-          	<input 
-          	type="number" 
-          	class="form-control small-field hour" 
-          	id="stage2-pdes" 
-          	name="stage2_pdes" 
-          	ng-model="form.stage2Pdes" 
-          	ng-change="calcHours()"> pDes
-          </span>
-
-          <span>
-          	<input 
-          	type="number" 
-          	class="form-control small-field hour" 
-          	id="stage2-cd" 
-          	name="stage2_cd" 
-          	ng-model="form.stage2Cd" 
-          	ng-change="calcHours()"> CD
-          </span>
-
-          <span>
-          	<input 
-          	type="number" 
-          	class="form-control small-field hour" 
-          	id="stage2-gd" 
-          	name="stage2_gd" 
-          	ng-model="form.stage2Gd" 
-          	ng-change="calcHours()"> GD
-          </span>
-
-          
-          
-    </div>
-
-
-	<div class="form-group col-md-12">
-		<input 
-		type="checkbox" 
-		id="stage2-estimate" 
-		name="stage2_estimate" 
-		ng-model="form.stage2Estimate" 
-		ng-click="clearHours()" 
-		ng-change="calcHours()"
-		ng-required="((form.stage2Des + form.stage2Sdes + form.stage2Pdes + form.stage2Cd + form.stage2Gd) < 1) || !form.stage2Des && !form.stage2Sdes && !form.stage2Pdes && !form.stage2Cd && !form.stage2Gd"> Need an estimate
-
-
-		<span ng-show="!form.stage2Estimate && stage2.stage2_estimate.$invalid && stage2.stage2_estimate.$dirty" class="field-error" >At least one hour required!</span>
-	</div>
 
 
 	<div class="clearfix"></div>
@@ -265,6 +199,98 @@
 		name="stage2_location"
 		ng-model="form.stage2Location"
 		placeholder="Or paste server location here...">
+	</div>
+
+	<div class="clearfix"></div>
+
+
+    <div class="col-md-12 hours-section">
+          <label class="control-label">Hours for this task</label>
+
+          <span ng-show="!form.stage2Estimate && stage2.stage2_estimate.$invalid && stage2.stage2_estimate.$dirty" class="field-error" >At least one hour required!</span>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-12">
+    		
+    	<table class="table">
+
+    		<tr>
+    			<td>Des</td>
+    			<td>sDes</td>
+    			<td>Studio</td>
+    			<td>CD</td>
+    			<td>GD</td>
+    		</tr>
+
+
+    		<tr>
+    			<td>
+    				<input 
+		          	  type="number" 
+			          class="form-control small-field hour" 
+			          id="stage2-des" 
+			          name="stage2_des" 
+			          ng-model="form.stage2Des" 
+			          ng-change="calcHours()" 
+			          style="">
+    			</td>
+    			<td>
+    				<input 
+		          	type="number" 
+		          	class="form-control small-field hour" 
+		          	id="stage2-sdes" 
+		          	name="stage2_sdes" 
+		          	ng-model="form.stage2Sdes" 
+		          	ng-change="calcHours()">
+    			</td>
+    			<td>
+    				<input 
+		          	type="number" 
+		          	class="form-control small-field hour" 
+		          	id="stage2-studio" 
+		          	name="stage2_studio" 
+		          	ng-model="form.stage2Studio" 
+		          	ng-change="calcHours()">
+    			</td>
+    			<td>
+    				<input 
+		          	type="number" 
+		          	class="form-control small-field hour" 
+		          	id="stage2-cd" 
+		          	name="stage2_cd" 
+		          	ng-model="form.stage2Cd" 
+		          	ng-change="calcHours()">
+    			</td>
+    			<td>
+    				<input 
+		          	type="number" 
+		          	class="form-control small-field hour" 
+		          	id="stage2-gd" 
+		          	name="stage2_gd" 
+		          	ng-model="form.stage2Gd" 
+		          	ng-change="calcHours()">
+    			</td>
+    		</tr>
+    		
+    	</table>
+
+    </div>
+
+
+	<div class="form-group col-md-12">
+		<input 
+		type="checkbox" 
+		id="stage2-estimate" 
+		name="stage2_estimate" 
+		ng-model="form.stage2Estimate" 
+		ng-click="clearHours()" 
+		ng-change="calcHours()"
+		ng-required="((form.stage2Des + form.stage2Sdes + form.stage2Studio + form.stage2Cd + form.stage2Gd) < 1) || !form.stage2Des && !form.stage2Sdes && !form.stage2Studio && !form.stage2Cd && !form.stage2Gd"> Need an estimate
+
+
+		
 	</div>
 	
 </ng-fom>

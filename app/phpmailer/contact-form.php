@@ -68,17 +68,6 @@ $mail->MsgHTML(
 
     "
 
-     
-
-
-
-
-
-
-
-
-
-
     );
 
 // $mail->AddAttachment("images/phpmailer.gif");      // attachment
