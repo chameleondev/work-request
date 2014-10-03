@@ -21,7 +21,7 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 	// Timeout so that swiper loads after angular has rendered all templates
 	$timeout(function(){
 
-		$('.help-icon').tooltip();
+		// $('.help-icon').tooltip();
 
 		//Initialize the swiper
 		window.mySwiper = new Swiper('.swiper-container',{
@@ -197,14 +197,13 @@ app.controller('Ctrl', ['$scope','$http','$timeout', function($scope,$http,$time
 
 
 
-app.directive('tooltip', function($timeout) {
+app.directive('tooltip', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
 
-			$timeout(function(){
-				$('.help-icon').tooltip();
-			},100)
+			$(element).tooltip();
+			
 
         }
     };
