@@ -16,6 +16,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/datepicker.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -73,7 +74,7 @@
       </div>
 
       
-      <div class="form-window col-md-10" swiper>
+      <div class="form-window col-md-10">
 
         <div class="col-md-12">
 
@@ -108,7 +109,7 @@
         
         <form name="request_form" class="request-form col-md-12" ng-submit="submit()" method="post" action="" novalidate>
           
-          <div class="swiper-container" style="">
+          <div class="swiper-container" swiper>
             <div class="swiper-wrapper">
             
               <div class="swiper-slide"  id="stage1" ng-include="'partials/partial-stage1.html'"></div>
@@ -163,6 +164,7 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/app.js"></script>
+        <script src="scripts/bootstrap-datepicker.js"></script>
         <!-- endbuild -->
 </body>
 </html>

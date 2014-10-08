@@ -177,6 +177,45 @@ margin-bottom: 25px;
   padding: 0 !important;
 }
 
+.form-window .swiper-container{
+  height: 1100px;
+}
+
+.request-form input.ng-invalid-required, .request-form textarea.ng-invalid-required, .request-form select.ng-invalid-required {
+background-color: #FCEBC5 !important;
+}
+
+.form-window .form-control[readonly]{
+  background-color: #fff;
+}
+.form-window .input-group-addon{
+  position: relative;
+  top: 0px;
+}
+
+.form-window input[type='checkbox']{
+  visibility: hidden;  
+}
+
+.form-window .checkbox-icon{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 15px;
+  background-image: url(../images/check.png);
+}
+
+.form-window .checkbox-icon .checked-checkbox-icon{
+  height: 20px;
+  width: 20px;
+  background-image: url(../images/check.png);
+  background-position: 20px 0;
+}
+
+.form-window .radio-inline, .form-window .checkbox-inline{
+  padding-left: 25px;
+}
+
 .checkme-down{
   margin-top: 30px;
 }
@@ -203,6 +242,7 @@ display: inline;
 
 .arrow.arrow-left{
   background-position: 70px;
+  opacity: 0.5
 }
 
 .arrow.arrow-right{
@@ -294,8 +334,8 @@ border: #F00 1px solid;
   width:20px;
   display: inline-block;
   background-size: 20px;
-  margin-left: 10px;
+  margin-right: 25px;
   position: relative;
-  top: 4px;
+  top: 5px;
 }
 

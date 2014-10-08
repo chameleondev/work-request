@@ -28,14 +28,19 @@
 	      <label for="stage2-draft-date" class="control-label">First draft by</label>
 
 	      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
-
+		
+		<div class="input-group">
 	      <input 
-	      type="date" 
+	      type="text" 
 	      class="form-control" 
 	      id="stage2-draft-date" 
 	      name="stage2_draft_date" 
 	      ng-model="form.stage2DraftDate"
-	      placeholder="dd/mm/yyyy">
+	      placeholder="dd/mm/yyyy"
+	      readonly
+	      date-picker>
+	      <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+		</div>
 
     </div>
 
@@ -63,15 +68,20 @@
 	      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
 
 		  <span ng-show="stage2.stage2_final_date.$invalid && stage2.stage2_final_date.$dirty" class="field-error" >Required!</span>
-
+		
+		<div class="input-group">
 	      <input 
-	      type="date" 
+	      type="text" 
 	      class="form-control" 
 	      id="stage2-final-date" 
 	      name="stage2_final_date" 
 	      ng-model="form.stage2FinalDate"
 	      placeholder="dd/mm/yyyy"
-	      required>
+	      required
+	      date-picker
+	      readonly>
+	      <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+		</div>
 
     </div>
 
@@ -218,7 +228,7 @@
 
     		<tr>
     			<td>Des</td>
-    			<td>sDes</td>
+    			<td>SDes</td>
     			<td>Studio</td>
     			<td>CD</td>
     			<td>GD</td>
