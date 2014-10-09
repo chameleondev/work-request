@@ -69,17 +69,17 @@
 
 			<span ng-show="!form.stage1DigProj && !form.stage1NewStudProj &&  !form.stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class=field-error>Required!</span> <br> 
 
-			<label class="checkbox-inline" for="stage1-new-des-proj"> 
+			<label class="checkbox-inline" for="stage1-new-des-proj" checkbox> 
 				
 				<div class="checkbox-icon">
 					<div class="checked-checkbox-icon"></div>
 				</div>
-				<input 
+				<input
 				type="checkbox"
 				id="stage1-new-des-proj" 
 				name="stage1_new_des_proj" 
 				ng-model="form.stage1NewDesProj" 
-				value="NB or internal" 
+				value="Design Project" 
 				ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project 
 				
 
@@ -87,8 +87,11 @@
 
 			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
 
-			<label class="checkbox-inline" for="stage1-new-stud-proj"> 
-
+			<label class="checkbox-inline" for="stage1-new-stud-proj" check-box ticked="off"> 
+				{{surname}}
+				<div class="checkbox-icon">
+					<div class="checked-checkbox-icon"></div>
+				</div>
 				<input 
 				type="checkbox" 
 				id="stage1-new-stud-proj" 
@@ -100,8 +103,11 @@
 
 			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
 
-			<label class="checkbox-inline" for="stage1-dig-proj"> 
-
+			<label class="checkbox-inline" for="stage1-dig-proj" checkbox> 
+				
+				<div class="checkbox-icon">
+					<div class="checked-checkbox-icon"></div>
+				</div>
 				<input 
 				type="checkbox" 
 				id="stage1-dig-proj" 

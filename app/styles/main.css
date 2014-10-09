@@ -197,11 +197,15 @@ background-color: #FCEBC5 !important;
   visibility: hidden;  
 }
 
+.form-window .checkbox-inline{
+  position: relative;
+} 
+
 .form-window .checkbox-icon{
   height: 20px;
   width: 20px;
   position: absolute;
-  left: 15px;
+  left: 0px;
   background-image: url(../images/check.png);
 }
 
@@ -210,6 +214,11 @@ background-color: #FCEBC5 !important;
   width: 20px;
   background-image: url(../images/check.png);
   background-position: 20px 0;
+  visibility: hidden;
+}
+
+.form-window .checkbox-icon .checked-checkbox-icon.active{
+  visibility: visible;
 }
 
 .form-window .radio-inline, .form-window .checkbox-inline{
