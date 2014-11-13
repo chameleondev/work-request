@@ -5,6 +5,9 @@
 	<div class="form-group col-md-6">
 
 	    <label for="stage3-creative" class="checkbox-inline">
+	    	<div class="checkbox-icon" ng-class="{'active' : request_form.stage3.stage3_creative.$valid}">
+				<div class="checked-checkbox-icon" ng-class="{'active': form.stage3Creative}"></div>
+			</div>
 	      <input 
 	      type="checkbox" 
 	      id="stage3-creative" 
@@ -15,6 +18,9 @@
 	    </label>
 
 	    <label for="stage3-technical" class="checkbox-inline">
+	    	<div class="checkbox-icon" ng-class="{'active' : request_form.stage3.stage3_technical.$valid}">
+				<div class="checked-checkbox-icon" ng-class="{'active': form.stage3Technical}"></div>
+			</div>
 	      <input 
 	      type="checkbox" 
 	      id="stage3-technical" 

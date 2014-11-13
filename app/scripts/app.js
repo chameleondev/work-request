@@ -73,31 +73,6 @@ app.directive('tooltip', function() {
 });
 
 
-app.directive('checkBox', function() {
-    return {
-        restrict: 'A',
-        scope : {
-        	ticked : '='
-        },
-        link: function(scope, element, attrs) {
-
-        	console.log(element);
-
-			element.on('click',function(e){
-				e.preventDefault();
-				console.log(attrs.ticked);
-				// console.log(scope.ticked);
-
-				attrs.ticked==='on' ? console.log('off') : console.log('on');
-
-			})
-			
-
-        }
-    };
-}); 
-
-
 
 app.directive('datePicker', function() {
     return {

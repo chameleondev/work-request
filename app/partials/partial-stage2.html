@@ -108,6 +108,10 @@
     <div class="form-group col-md-2">
 
       <label for="stage2-immediately" class="checkbox-inline checkme-down">
+
+      	<div class="checkbox-icon" ng-class="{'active' : request_form.stage2.stage2_immediately.$valid}">
+			<div class="checked-checkbox-icon" ng-class="{'active': form.stage2Immediately}"></div>
+		</div>
         <input 
         type="checkbox" 
         id="stage2-immediately" 
@@ -290,6 +294,12 @@
 
 
 	<div class="form-group col-md-12">
+
+
+	<label class="checkbox-inline" for="stage2-estimate">
+		<div class="checkbox-icon" ng-class="{'active' : request_form.stage2.stage2_estimate.$valid}">
+			<div class="checked-checkbox-icon" ng-class="{'active': form.stage2Estimate}"></div>
+		</div>
 		<input 
 		type="checkbox" 
 		id="stage2-estimate" 
@@ -298,6 +308,8 @@
 		ng-click="clearHours()" 
 		ng-change="calcHours()"
 		ng-required="((form.stage2Des + form.stage2Sdes + form.stage2Studio + form.stage2Cd + form.stage2Gd) < 1) || !form.stage2Des && !form.stage2Sdes && !form.stage2Studio && !form.stage2Cd && !form.stage2Gd"> Need an estimate
+
+	</label>
 
 
 		

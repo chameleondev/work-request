@@ -28,8 +28,12 @@
 	<div class="clearfix"></div>
 
 	<div class="form-group col-md-6">
-
+			
 			<label class="radio-inline" for="stage1-new">
+				<div class="radio-btn-container" ng-class="{'active' : request_form.stage1.stage1_new_existing.$valid}">
+					<div class="radio-btn" ng-class="{'active': form.stage1Job == 'New job'}"></div>
+				</div>
+		
 	          <input 
 	          type="radio" 
 	          id="stage1-new" 
@@ -42,6 +46,10 @@
 		
        
         	<label class="radio-inline" for="stage1-existing">
+        		<div class="radio-btn-container" ng-class="{'active' : request_form.stage1.stage1_new_existing.$valid}">
+					<div class="radio-btn" ng-class="{'active': form.stage1Job == 'Existing job'}"></div>
+				</div>
+        	
 	          <input 
 	          type="radio" 
 	          id="stage1-existing" 
@@ -69,28 +77,29 @@
 
 			<span ng-show="!form.stage1DigProj && !form.stage1NewStudProj &&  !form.stage1NewDesProj && (stage1.stage1_new_des_proj.$dirty || stage1.stage1_new_stud_proj.$dirty || stage1.stage1_dig_proj.$dirty)" class=field-error>Required!</span> <br> 
 
-			<label class="checkbox-inline" for="stage1-new-des-proj" checkbox> 
+			<label class="checkbox-inline" for="stage1-new-des-proj"> 
 				
-				<div class="checkbox-icon">
-					<div class="checked-checkbox-icon"></div>
+				<div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_new_des_proj.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1NewDesProj}"></div>
 				</div>
 				<input
+				checked="checked"
 				type="checkbox"
 				id="stage1-new-des-proj" 
 				name="stage1_new_des_proj" 
 				ng-model="form.stage1NewDesProj" 
-				value="Design Project" 
-				ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design project 
+				value="Design Project"
+				ng-required="!form.stage1NewStudProj && !form.stage1DigProj"> Design projects 
 				
 
 			</label> 
 
 			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
 
-			<label class="checkbox-inline" for="stage1-new-stud-proj" check-box ticked="off"> 
-				{{surname}}
-				<div class="checkbox-icon">
-					<div class="checked-checkbox-icon"></div>
+			<label class="checkbox-inline" for="stage1-new-stud-proj"> 
+
+				<div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_dig_proj.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1NewStudProj}"></div>
 				</div>
 				<input 
 				type="checkbox" 
@@ -103,10 +112,10 @@
 
 			<span class="help-icon" data-toggle="tooltip" data-placement="top" title="Tooltip on left lorem" tooltip></span>
 
-			<label class="checkbox-inline" for="stage1-dig-proj" checkbox> 
+			<label class="checkbox-inline" for="stage1-dig-proj"> 
 				
-				<div class="checkbox-icon">
-					<div class="checked-checkbox-icon"></div>
+				<div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_dig_proj.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1DigProj}"></div>
 				</div>
 				<input 
 				type="checkbox" 
@@ -217,6 +226,10 @@
 	        <br>
 
 	        <label class="checkbox-inline" for="stage1-bug-in-pap">
+
+	          <div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_bug_in_pap.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1BugInPap}"></div>
+				</div>
 	          <input 
 	          type="checkbox" 
 	          id="stage1-bug-in-pap" 
@@ -227,6 +240,10 @@
 
 
 	        <label class="checkbox-inline" for="stage1-nb-or-int">
+
+	          <div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_nb_or_int.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1NbOrInt}"></div>
+				</div>
 	          <input 
 	          type="checkbox" 
 	          id="stage1-nb-or-int" 
@@ -236,6 +253,10 @@
 	        </label>
 
 			<label class="checkbox-inline" for="stage1-estimate">
+
+			  <div class="checkbox-icon" ng-class="{'active' : request_form.stage1.stage1_estimate.$valid}">
+					<div class="checked-checkbox-icon" ng-class="{'active': form.stage1Estimate}"></div>
+				</div>
 	          <input 
 	          type="checkbox" 
 	          id="stage1-estimate" 
